@@ -18,6 +18,49 @@ _global_script_class_icons={
 config/name="LD_YourLifeIsCurrency"
 config/icon="res://icon.png"
 
+[input]
+
+mainChar_up={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_down={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_left={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_right={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_dodge={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_meleeAttack={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_rangeAttack={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_speed={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_AOE={
+"deadzone": 0.5,
+"events": [  ]
+}
+mainChar_grapple={
+"deadzone": 0.5,
+"events": [  ]
+}
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

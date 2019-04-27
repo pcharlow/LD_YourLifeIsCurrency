@@ -2,10 +2,17 @@ extends Node2D
 
 # Declare member variables here. Examples:
 
+const UP = 0
+const LEFT = 1
+const DOWN = 2
+const RIGHT =3
+
 #char variables
 var maxHP : int = 100
 var HP : int = 100
 var speed : int = 100
+#potentially unneeded
+var direction : int = 0
 
 #unlocked abilites
 var unlockedMelee : bool = true
@@ -16,6 +23,8 @@ var unlockedSpeed : bool = false
 var unlockedAOE : bool = false
 
 #cooldowns
+var canMove : bool = true
+
 var canMelee : bool = true
 var canDodge : bool = true
 var canRanged : bool = true
