@@ -8,6 +8,8 @@ const DOWN = 2
 const RIGHT =3
 
 #char variables
+var gameover : bool = false
+
 var maxHP : int = 100
 var HP : int = 100
 var speed : int = 100
@@ -42,5 +44,31 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
+	var isMoving = Input.is_action_pressed("mainChar_up") or Input.is_action_pressed("mainChar_down") or Input.is_action_pressed("mainChar_left") or Input.is_action_pressed("mainChar_right")
+	
+	var horMoving : bool = false
+	var vertMoving : bool = true
+	var movingDiagonal : bool = false
+	
+	if canMove:
+		
+		if isMoving:
+			
+			if Input.is_action_pressed("mainChar_up"):
+				vertMoving = true
+			if Input.is_action_pressed("mainChar_down"):
+				vertMoving = true
+			if Input.is_action_pressed("mainChar_left"):
+				horMoving = true
+			if Input.is_action_pressed("mainChar_right"):
+				horMoving = true
+				
+				
+				
+		if vertMoving and horMoving:
+			movingDiagonal = true
+		
+	
 	
 	pass
