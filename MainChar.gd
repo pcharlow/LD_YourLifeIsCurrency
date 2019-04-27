@@ -178,7 +178,9 @@ func _physics_process(delta):
 	
 	_GetInput()
 	player.look_at(get_global_mouse_position())
-	playerText.text = str(HP) + "/" + str(maxHP)
+	
+	#playerText.text = str(HP) + "/" + str(maxHP)
+	playerText.text = str(player.rotation_degrees)
 	
 	if isSpeeding:
 		speed = 600
@@ -289,12 +291,15 @@ func _PerformSpeed():
 
 func _PerformRanged():
 	
-	
-	var ranged = Projectile.instance()
-	ranged.pos = position
-	ranged.dir = direction
-	get_parent().add_child(ranged)
-	
+	if canRanged:
+		
+		canRanged = false
+		var ranged = Projectile.instance()
+		ranged.pos = player.position
+		ranged.dir = player.rotation_degrees
+		player.get_parent().add_child(ranged)
+		
+		canRangedTimer.start()
 	
 	pass
 	
