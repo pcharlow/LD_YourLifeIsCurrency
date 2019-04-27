@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD_YourLifeIsCurrency"
+run/main_scene="res://IntroWorld.tscn"
 config/icon="res://icon.png"
 
 [input]
