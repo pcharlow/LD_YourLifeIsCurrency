@@ -4,7 +4,7 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-onready var AlterText = $"./InteractiveText"
+onready var AlterText = $InteractText
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,8 +20,13 @@ func _process(delta):
 
 
 func _on_AlterArea2d_area_entered(area):
+	AlterText.visible = true
+	#print(area.get_name())
 	
-	print(area.get_name())
 	
-	
+	pass # Replace with function body.
+
+
+func _on_AltarArea2d_area_exited(area):
+	AlterText.visible = false
 	pass # Replace with function body.

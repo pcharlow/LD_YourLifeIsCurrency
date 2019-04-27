@@ -8,6 +8,8 @@ onready var aoeHitbox = $MainCharBody/AOE/AoeCollider
 onready var aoeAnim = $MainCharBody/AOE/BloodAOE
 onready var HPBar = $"CanvasLayer/HUD"
 
+
+
 const UP = 0
 const LEFT = 1
 const DOWN = 2
@@ -79,6 +81,9 @@ var speedingTime = 1
 var canRangedTimer = null
 var rangedCooldown = 1
 
+var g = HPPack.instance()
+#onready var pack = get_node("HPPackBody")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -130,13 +135,16 @@ func _ready():
 	
 	pass # Replace with function body.
 
-
+func raiseHealth():
+	
+	HP+=20
+	pass
 
 
 
 #determines the current input
 func _GetInput():
-	
+	 
 	movement = Vector2()
 	isMoving = Input.is_action_pressed("mainChar_up") or Input.is_action_pressed("mainChar_down") or Input.is_action_pressed("mainChar_left") or Input.is_action_pressed("mainChar_right")
 	#vertMoving = Input.is_action_pressed("mainChar_up") or Input.is_action_pressed("mainChar_down")
@@ -167,6 +175,8 @@ func _GetInput():
 	if Input.is_action_pressed("mainChar_grapple"):
 		if unlockedGrapple:
 			_PerformGrapple()
+	if Input.is_action_pressed("mainChar_interact"):
+		_PerformInteraction()
 		
 		
 	movement = movement.normalized() * speed
@@ -357,6 +367,13 @@ func _PerformRanged():
 	pass
 	
 	
+	
+func _PerformInteraction():
+
+
+
+
+	pass
 	
 	
 	

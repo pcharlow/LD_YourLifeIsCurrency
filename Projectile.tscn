@@ -23,7 +23,8 @@ collision_layer = 6
 collision_mask = 6
 
 [node name="ProjectileCollider" type="CollisionShape2D" parent="ProjectileBody"]
-scale = Vector2( -1.09815, 1.1225 )
+rotation = 3.14159
+scale = Vector2( 1.09815, -1.1225 )
 shape = SubResource( 1 )
 
 [node name="ProjectileSprite" type="AnimatedSprite" parent="ProjectileBody"]
