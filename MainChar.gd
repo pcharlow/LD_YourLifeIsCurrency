@@ -6,10 +6,13 @@ onready var playerText = $MainCharBody/TestLabel
 onready var meleeHitbox = $MainCharBody/Melee/MeleeCollider
 onready var aoeHitbox = $MainCharBody/AOE/AoeCollider
 
+
 const UP = 0
 const LEFT = 1
 const DOWN = 2
 const RIGHT =3
+
+const Projectile = preload("res://Projectile.tscn")
 
 #char variables
 var gameover : bool = false
@@ -155,8 +158,9 @@ func _GetInput():
 		_PerformAOE()
 	if Input.is_action_pressed("mainChar_rangeAttack"):
 		_PerformRanged()
-	
-	
+		
+		
+		
 	movement = movement.normalized() * speed
 	
 	
@@ -284,6 +288,12 @@ func _PerformSpeed():
 
 
 func _PerformRanged():
+	
+	
+	var ranged = Projectile.instance()
+	ranged.pos = position
+	ranged.dir = direction
+	get_parent().add_child(ranged)
 	
 	
 	pass
