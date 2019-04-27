@@ -7,7 +7,7 @@ extends Node2D
 onready var ProjBody = $ProjectileBody
 onready var ProjSprite = $ProjectileBody/AnimatedSprite
 
-export var speed = 20
+export var speed = 25
 
 var pos = Vector2()
 var dir : float = 0

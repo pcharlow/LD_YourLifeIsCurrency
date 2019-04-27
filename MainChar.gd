@@ -158,7 +158,8 @@ func _GetInput():
 		_PerformAOE()
 	if Input.is_action_pressed("mainChar_rangeAttack"):
 		_PerformRanged()
-		
+	if Input.is_action_pressed("mainChar_grapple"):
+		_PerformGrapple()
 		
 		
 	movement = movement.normalized() * speed
@@ -177,22 +178,26 @@ func _physics_process(delta):
 
 	
 	_GetInput()
+	
+	#if not isDodging:
+	
 	player.look_at(get_global_mouse_position())
 	
-	#playerText.text = str(HP) + "/" + str(maxHP)
-	playerText.text = str(player.rotation_degrees)
+	playerText.text = str(HP) + "/" + str(maxHP)
+	#playerText.text = str(player.rotation_degrees)
+	if not isDodging:
+		
+		if isSpeeding:
+			speed = 600
+		elif not isSpeeding:
+			speed = 200
 	
-	if isSpeeding:
-		speed = 600
-	elif not isSpeeding:
-		speed = 200
 	
-	
-	if canMove:
+		if canMove:
 			
-		if isMoving:
+			if isMoving:
 			
-			 player.move_and_slide(movement)
+			 	player.move_and_slide(movement)
 		
 		#if vertMoving and horMoving:
 		#	movingDiagonal = true
@@ -207,15 +212,35 @@ func _physics_process(delta):
 
 
 func _PerformDodge():
-	
-	if canDodge:
-		canDodge = false
-		isDodging = true
+	if HP > 5:
 		
-		canDodgeTimer.start()
+		if canDodge:
+			HP -= 5
+			canDodge = false
+			isDodging = true
+			
+			#player.translate(player.transform.x.normalized() * speed)
+			#var newDir = get_global_mouse_position() - player.position.normalized()
+			#player.linear_velocity = newDir * speed
+			
+			var mouse_position = get_global_mouse_position()
+			var projectile_direction = (player.global_position - mouse_position).normalized()
+			#player.position -= projectile_direction * (100)
+			player.move_and_slide((projectile_direction * (7000)) * -1)
+			isDodging = false
+			canDodgeTimer.start()
 	pass
 
 
+
+
+
+func _PerformGrapple():
+	
+	
+	
+	
+	pass
 
 
 
@@ -290,16 +315,17 @@ func _PerformSpeed():
 
 
 func _PerformRanged():
-	
-	if canRanged:
+	if HP > 3:
 		
-		canRanged = false
-		var ranged = Projectile.instance()
-		ranged.pos = player.position
-		ranged.dir = player.rotation_degrees
-		player.get_parent().add_child(ranged)
+		if canRanged:
+			HP -= 3
+			canRanged = false
+			var ranged = Projectile.instance()
+			ranged.pos = player.position
+			ranged.dir = player.rotation_degrees
+			player.get_parent().add_child(ranged)
 		
-		canRangedTimer.start()
+			canRangedTimer.start()
 	
 	pass
 	

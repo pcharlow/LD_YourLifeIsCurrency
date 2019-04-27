@@ -19,8 +19,8 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="ProjectileBody" type="KinematicBody2D" parent="."]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 
 [node name="ProjectileCollider" type="CollisionShape2D" parent="ProjectileBody"]
 scale = Vector2( -1.09815, 1.1225 )
@@ -29,7 +29,7 @@ shape = SubResource( 1 )
 [node name="ProjectileSprite" type="AnimatedSprite" parent="ProjectileBody"]
 scale = Vector2( 0.554401, 0.60371 )
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
 offset = Vector2( -9.63, 0 )
 
