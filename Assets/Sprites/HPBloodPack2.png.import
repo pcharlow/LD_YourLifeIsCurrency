@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Melee.png-c4def1411efabd2b6e56ca595f9fd68f.stex"
+path="res://.import/HPBloodPack2.png-0c88875cfe07152a6ad06ff9db3ab438.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Melee.png"
-dest_files=[ "res://.import/Melee.png-c4def1411efabd2b6e56ca595f9fd68f.stex" ]
+source_file="res://Assets/Sprites/HPBloodPack2.png"
+dest_files=[ "res://.import/HPBloodPack2.png-0c88875cfe07152a6ad06ff9db3ab438.stex" ]
 
 [params]
 

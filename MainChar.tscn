@@ -1,12 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://MainChar.gd" type="Script" id=1]
-[ext_resource path="res://TestChar.png" type="Texture" id=2]
-[ext_resource path="res://Melee.png" type="Texture" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/TestChar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Melee.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/BloodAOE1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/BloodAOE2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/BloodAOE3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/BloodAOE4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/BloodAOE5.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/BloodAOE6.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/BloodAOE7.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/BloodAOE8.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 160.991
+radius = 147.043
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "default",
+"speed": 20.0
+} ]
 
 [node name="MainChar" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,6 +42,7 @@ margin_right = 40.0
 margin_bottom = -34.0
 
 [node name="Melee" type="KinematicBody2D" parent="MainCharBody"]
+editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 
@@ -44,6 +61,7 @@ scale = Vector2( 0.483996, 0.413438 )
 texture = ExtResource( 3 )
 
 [node name="AOE" type="KinematicBody2D" parent="MainCharBody"]
+show_behind_parent = true
 collision_layer = 2
 collision_mask = 2
 
@@ -51,12 +69,17 @@ collision_mask = 2
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Sprite" type="Sprite" parent="MainCharBody/AOE/AoeCollider"]
+[node name="BloodAOE" type="AnimatedSprite" parent="MainCharBody/AOE"]
 visible = false
-position = Vector2( 0.0836868, 0.239807 )
-scale = Vector2( 4.87126, 4.93787 )
-texture = ExtResource( 4 )
+frames = SubResource( 2 )
+speed_scale = 1.5
 
 [node name="Camera2D" type="Camera2D" parent="MainCharBody"]
 current = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 12 )]
 

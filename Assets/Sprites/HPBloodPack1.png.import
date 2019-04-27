@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TestChar.png-9d7bc4eaf7875905568fea3628bc2891.stex"
+path="res://.import/HPBloodPack1.png-9ae55a6a03a78dfb62b0e79bdc23ceb6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TestChar.png"
-dest_files=[ "res://.import/TestChar.png-9d7bc4eaf7875905568fea3628bc2891.stex" ]
+source_file="res://Assets/Sprites/HPBloodPack1.png"
+dest_files=[ "res://.import/HPBloodPack1.png-9ae55a6a03a78dfb62b0e79bdc23ceb6.stex" ]
 
 [params]
 

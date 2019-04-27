@@ -1,28 +1,31 @@
 [gd_scene load_steps=3 format=2]
 
+[ext_resource path="res://Scenes/HUD.gd" type="Script" id=1]
+
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.631373, 0, 0, 1 )
+bg_color = Color( 0.513726, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.34902, 0.301961, 0.301961, 1 )
-
-[node name="HUD" type="Node2D"]
+[node name="HUD" type="Control"]
+margin_left = 10.0
+margin_top = 10.0
+script = ExtResource( 1 )
 
 [node name="HP Bar" type="ProgressBar" parent="."]
-margin_right = 4.0
-margin_bottom = 14.0
-rect_scale = Vector2( 27.1241, 1.15384 )
+margin_left = 392.0
+margin_top = 533.0
+margin_right = 656.0
+margin_bottom = 564.0
 custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
-custom_colors/font_color = Color( 0.521569, 0.156863, 0.156863, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+step = 1.0
 value = 100.0
+percent_visible = false
 
 [node name="HP Text" type="Label" parent="HP Bar"]
-margin_left = 1.0
-margin_top = 3.0
-margin_right = 40.0
-margin_bottom = 14.0
-rect_scale = Vector2( 0.0365524, 0.557757 )
+margin_left = 100.315
+margin_top = 8.07941
+margin_right = 165.315
+margin_bottom = 25.0794
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "100/100"
 

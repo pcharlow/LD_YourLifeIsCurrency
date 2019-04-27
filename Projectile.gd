@@ -25,7 +25,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
-	ProjBody.translate(ProjBody.transform.x.normalized() * speed)
 
+	#ProjBody.translate(ProjBody.transform.x.normalized() * speed)
+	var coll = ProjBody.move_and_collide(ProjBody.transform.x.normalized() * speed)
+	if coll:
+		queue_free()
+	
+	
 	pass

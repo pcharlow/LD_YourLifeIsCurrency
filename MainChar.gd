@@ -5,7 +5,8 @@ onready var player = $MainCharBody
 onready var playerText = $MainCharBody/TestLabel
 onready var meleeHitbox = $MainCharBody/Melee/MeleeCollider
 onready var aoeHitbox = $MainCharBody/AOE/AoeCollider
-
+onready var aoeAnim = $MainCharBody/AOE/BloodAOE
+onready var HPBar = $"CanvasLayer/HUD"
 
 const UP = 0
 const LEFT = 1
@@ -30,11 +31,11 @@ var movingDiagonal : bool = false
 
 #unlocked abilites
 var unlockedMelee : bool = true
-var unlockedRanged : bool = false
-var unlockedDodge : bool = false
+var unlockedRanged : bool = true
+var unlockedDodge : bool = true
 var unlockedGrapple : bool = false
-var unlockedSpeed : bool = false
-var unlockedAOE : bool = false
+var unlockedSpeed : bool = true
+var unlockedAOE : bool = true
 
 #cooldowns
 var canMove : bool = true
@@ -99,7 +100,7 @@ func _ready():
 	canAOETimer.set_one_shot(true)
 	canAOETimer.set_wait_time(AOECooldown)
 	canAOETimer.connect("timeout", self,"_enable_Action",["canAOE"])
-	add_child(canAOETimer)	
+	add_child(canAOETimer)
 	
 	canGrappleTimer = Timer.new()
 	canGrappleTimer.set_one_shot(true)
@@ -188,8 +189,10 @@ func _physics_process(delta):
 	
 	player.look_at(get_global_mouse_position())
 	
-	playerText.text = str(HP) + "/" + str(maxHP)
-	#playerText.text = str(player.rotation_degrees)
+	#playerText.text = str(HP) + "/" + str(maxHP)
+	HPBar.maxHPValue = maxHP
+	HPBar.HPValue = HP
+	#playerText.text = str(canAOE)
 	if not isDodging:
 		
 		if isSpeeding:
@@ -202,11 +205,22 @@ func _physics_process(delta):
 			
 			if isMoving:
 			
-			 	player.move_and_slide(movement)
-		
+				#var coll = player.move_and_slide(movement)
+				var coll = player.move_and_collide(movement * delta)
+				if coll:
+					
+					if coll.collider.name == "HPPackBody":
+						if HP < maxHP - 20:
+							HP += 20
+							coll.collider.queue_free()
+						elif HP > maxHP - 20 and HP != maxHP:
+							HP = maxHP
+							coll.collider.queue_free()
 		#if vertMoving and horMoving:
 		#	movingDiagonal = true
 		
+	
+	#var coll = aoeHitbox.collis
 	
 	
 	pass
@@ -283,22 +297,24 @@ func _PerformAOE():
 		if canAOE:
 			canAOE = false
 			HP -= 10
+			aoeAnim.frame = 0
 			aoeHitbox.disabled = false
-			$MainCharBody/AOE/AoeCollider/Sprite.visible = true
+			aoeAnim.visible = true
+			aoeAnim.connect("animation_finished", self, "_DisableAOE")
+			aoeAnim.play("default")
 		
-		
-			yield(get_tree().create_timer(.40), "timeout")
-		
-			aoeHitbox.disabled = true
-
-			$MainCharBody/AOE/AoeCollider/Sprite.visible = false
-			#code for melee (expand hit box or call new object with collision)
-		
-		
-			canAOETimer.start()
 	pass
 
-
+func _DisableAOE():
+	
+	aoeAnim.visible = false
+	aoeHitbox.disabled = true
+	#canAOETimer.start()
+	
+	yield(get_tree().create_timer(1), "timeout")
+	canAOE = true
+	
+	pass
 
 
 
@@ -329,7 +345,6 @@ func _PerformRanged():
 			ranged.pos = player.position
 			ranged.dir = player.rotation_degrees
 			player.get_parent().add_child(ranged)
-		
 			canRangedTimer.start()
 	
 	pass
@@ -361,6 +376,6 @@ func _enable_Action(action):
 		
 	if action == "isSpeeding":
 		isSpeeding = false
-		canSpeedTimer.start()		
+		canSpeedTimer.start()
 		
 	pass
