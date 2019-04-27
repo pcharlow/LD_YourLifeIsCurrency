@@ -174,7 +174,7 @@ func _physics_process(delta):
 	
 	_GetInput()
 	player.look_at(get_global_mouse_position())
-	playerText.text = str(meleeHitbox.disabled)
+	playerText.text = str(HP) + "/" + str(maxHP)
 	
 	if isSpeeding:
 		speed = 600
@@ -243,23 +243,23 @@ func _PerformMeleeAttack():
 
 #cast the AOE attack
 func _PerformAOE():
+	if HP > 10:
+		if canAOE:
+			canAOE = false
+			HP -= 10
+			aoeHitbox.disabled = false
+			$MainCharBody/AOE/AoeCollider/Sprite.visible = true
+		
+		
+			yield(get_tree().create_timer(.40), "timeout")
+		
+			aoeHitbox.disabled = true
 
-	if canAOE:
-		canAOE = false
-
-		aoeHitbox.disabled = false
-		$MainCharBody/AOE/AoeCollider/Sprite.visible = true
+			$MainCharBody/AOE/AoeCollider/Sprite.visible = false
+			#code for melee (expand hit box or call new object with collision)
 		
 		
-		yield(get_tree().create_timer(.40), "timeout")
-		
-		aoeHitbox.disabled = true
-
-		$MainCharBody/AOE/AoeCollider/Sprite.visible = false
-		#code for melee (expand hit box or call new object with collision)
-		
-		
-		canAOETimer.start()
+			canAOETimer.start()
 	pass
 
 
@@ -269,11 +269,12 @@ func _PerformAOE():
 
 #Enables the Speed powerup
 func _PerformSpeed():
-	
-	if canSpeed:
-			isSpeeding = true
-			canSpeed = false
-			speedingTimer.start()
+	if HP > 8:
+		if canSpeed:
+				HP -= 8
+				isSpeeding = true
+				canSpeed = false
+				speedingTimer.start()
 	pass
 
 
