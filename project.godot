@@ -18,7 +18,7 @@ _global_script_class_icons={
 config/name="LD_YourLifeIsCurrency"
 config/icon="res://icon.png"
 
-[display]
+[input]
 
 mainChar_up={
 "deadzone": 0.5,
@@ -73,6 +73,4 @@ mainChar_grapple={
 
 [rendering]
 
-quality/intended_usage/framebuffer_allocation=0
-quality/intended_usage/framebuffer_allocation.mobile=0
 environment/default_environment="res://default_env.tres"
