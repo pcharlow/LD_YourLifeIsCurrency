@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://MainChar.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/TestChar.png" type="Texture" id=2]
@@ -24,10 +24,14 @@ animations = [ {
 "speed": 20.0
 } ]
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 33.0047
+
 [node name="MainChar" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="MainCharBody" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 
 [node name="MainCharCollider" type="CollisionPolygon2D" parent="MainCharBody"]
 scale = Vector2( 1.04162, 0.944353 )
@@ -82,4 +86,9 @@ smoothing_speed = 7.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource( 12 )]
+
+[node name="MainCharArea" type="Area2D" parent="."]
+
+[node name="MainCharAreaColl" type="CollisionShape2D" parent="MainCharArea"]
+shape = SubResource( 3 )
 

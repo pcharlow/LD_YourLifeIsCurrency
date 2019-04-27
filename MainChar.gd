@@ -22,6 +22,7 @@ var maxHP : int = 100
 var HP : int = 100
 var speed : int = 200
 var movement = Vector2()
+var interacting : bool = false
 
 #potentially unneeded
 var direction : int = 0
@@ -184,38 +185,44 @@ func _physics_process(delta):
 
 	
 	_GetInput()
-	
-	#if not isDodging:
-	
-	player.look_at(get_global_mouse_position())
-	
-	#playerText.text = str(HP) + "/" + str(maxHP)
 	HPBar.maxHPValue = maxHP
 	HPBar.HPValue = HP
+	#if not isDodging:
+	
+	
+	if not interacting:
+		player.look_at(get_global_mouse_position())
+	
+	#playerText.text = str(HP) + "/" + str(maxHP)
 	#playerText.text = str(canAOE)
-	if not isDodging:
+		if not isDodging:
 		
-		if isSpeeding:
-			speed = 600
-		elif not isSpeeding:
-			speed = 200
+			if isSpeeding:
+				speed = 600
+			elif not isSpeeding:
+				speed = 200
 	
 	
-		if canMove:
+			if canMove:
 			
-			if isMoving:
+				if isMoving:
 			
 				#var coll = player.move_and_slide(movement)
-				var coll = player.move_and_collide(movement * delta)
-				if coll:
+					var coll = player.move_and_collide(movement * delta)
+					if coll:
 					
-					if coll.collider.name == "HPPackBody":
-						if HP < maxHP - 20:
-							HP += 20
-							coll.collider.queue_free()
-						elif HP > maxHP - 20 and HP != maxHP:
-							HP = maxHP
-							coll.collider.queue_free()
+						if coll.collider.name == "HPPackBody":
+							if HP < maxHP - 20:
+								HP += 20
+								coll.collider.queue_free()
+							elif HP > maxHP - 20 and HP != maxHP:
+								HP = maxHP
+								coll.collider.queue_free()
+						if coll.collider.name == "AlterInRange":
+							playerText.text = "Interact With Alter?"
+						
+					else:
+						playerText.text = ""
 		#if vertMoving and horMoving:
 		#	movingDiagonal = true
 		

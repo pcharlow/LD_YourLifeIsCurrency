@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/TeestingTiles.png" type="Texture" id=1]
 [ext_resource path="res://MainChar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/HPPack.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Alter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/HPPack.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 15.7871, 0, 16.122, 64, 0, 64 )
@@ -109,6 +110,12 @@ tile_data = PoolIntArray( -131055, 0, 0, -131054, 0, 1, -131053, 0, 1, -131052, 
 [node name="MainChar" parent="." instance=ExtResource( 2 )]
 position = Vector2( 453.035, 208.715 )
 
-[node name="HPPack" parent="." instance=ExtResource( 3 )]
+[node name="Alter" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1644.79, 388.633 )
+
+[node name="HPPack" parent="." instance=ExtResource( 4 )]
 position = Vector2( 739.058, 292.521 )
+
+[node name="Alter2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 647.541, 438.51 )
 

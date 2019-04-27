@@ -27,6 +27,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="HPPackBody"]
 frames = SubResource( 2 )
-frame = 2
+frame = 3
 playing = true
 
