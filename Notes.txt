@@ -1,0 +1,24 @@
+top down - rogue like
+Each level requires health sacrifice to an alter to move to the next level
+Each alter grants a new ability(ability needed in next level) alters require %50 of HP
+Killing enemies makes them drop a blood orb(health pack)
+different alters throughout levels
+
+
+Required Alters:
+	1. Blood Whip(Melee Attack)
+	2. Ranged Attack
+	3. Teleport Dodge			
+	4. Grappling hook(?)
+	5. Speed(?)
+	6. AOE Attack
+
+Optional Alter types:
+	1. Spend HP to raise max hp
+	2. Sacrifice 10hp to spawn enemy
+	3. Sacrifice hp for shortcut
+	
+
+Enemies:
+	1: Basic Mob
+	2: Final Boss
