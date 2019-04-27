@@ -57,10 +57,13 @@ func _physics_process(delta):
 			
 			if Input.is_action_pressed("mainChar_up"):
 				vertMoving = true
+				
 			if Input.is_action_pressed("mainChar_down"):
 				vertMoving = true
+				
 			if Input.is_action_pressed("mainChar_left"):
 				horMoving = true
+				
 			if Input.is_action_pressed("mainChar_right"):
 				horMoving = true
 				
