@@ -1,7 +1,8 @@
 extends Node2D
 
 # Declare member variables here. Examples:
-onready var player = $MainChar/MainCharBody
+onready var player = $MainCharBody
+onready var playerText = $MainCharBody/TestLabel
 const UP = 0
 const LEFT = 1
 const DOWN = 2
@@ -12,7 +13,7 @@ var gameover : bool = false
 
 var maxHP : int = 100
 var HP : int = 100
-var speed : int = 100
+var speed : int = 200
 var isMoving : bool = false
 var movement = Vector2()
 
@@ -53,13 +54,13 @@ func _GetInput():
 	
 	movement = Vector2()
 	isMoving = Input.is_action_pressed("mainChar_up") or Input.is_action_pressed("mainChar_down") or Input.is_action_pressed("mainChar_left") or Input.is_action_pressed("mainChar_right")
-	vertMoving = Input.is_action_pressed("mainChar_up") or Input.is_action_pressed("mainChar_down")
-	horMoving = Input.is_action_pressed("mainChar_right") or Input.is_action_pressed("mainChar_left")
+	#vertMoving = Input.is_action_pressed("mainChar_up") or Input.is_action_pressed("mainChar_down")
+	#horMoving = Input.is_action_pressed("mainChar_right") or Input.is_action_pressed("mainChar_left")
 	
 	if Input.is_action_pressed("mainChar_up"):
-		movement.y += 1
-	if Input.is_action_pressed("mainChar_down"):
 		movement.y -= 1
+	if Input.is_action_pressed("mainChar_down"):
+		movement.y += 1
 	if Input.is_action_pressed("mainChar_left"):
 		movement.x -= 1
 	if Input.is_action_pressed("mainChar_right"):
@@ -73,14 +74,17 @@ func _GetInput():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
+	#position = player.position
+	#rotation = get_global_mouse_position().angle_to_point(player.position)
 	_GetInput()
-	look_at(get_global_mouse_position())
-		
+	player.look_at(get_global_mouse_position())
+	
+	
+	playerText.text = str(movement)
 	if canMove:
 			
 		if isMoving:
-			player.move_and_slide(movement)
+			 player.move_and_slide(movement)
 		
 		#if vertMoving and horMoving:
 		#	movingDiagonal = true
