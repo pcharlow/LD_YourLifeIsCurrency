@@ -151,15 +151,20 @@ func _GetInput():
 	if Input.is_action_pressed("mainChar_meleeAttack"):
 		_PerformMeleeAttack()
 	if Input.is_action_pressed("mainChar_dodge"):
-		_PerformDodge()
+		if unlockedDodge:
+			_PerformDodge()
 	if Input.is_action_pressed("mainChar_speed"):
-		_PerformSpeed()
+		if unlockedSpeed:
+			_PerformSpeed()
 	if Input.is_action_pressed("mainChar_AOE"):
-		_PerformAOE()
+		if unlockedAOE:
+			_PerformAOE()
 	if Input.is_action_pressed("mainChar_rangeAttack"):
-		_PerformRanged()
+		if unlockedRanged:
+			_PerformRanged()
 	if Input.is_action_pressed("mainChar_grapple"):
-		_PerformGrapple()
+		if unlockedGrapple:
+			_PerformGrapple()
 		
 		
 	movement = movement.normalized() * speed
