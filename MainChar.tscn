@@ -10,7 +10,6 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="MainCharBody" type="KinematicBody2D" parent="MainChar"]
-motion/sync_to_physics = true
 
 [node name="MainCharCollider" type="CollisionPolygon2D" parent="MainChar/MainCharBody"]
 polygon = PoolVector2Array( -30.3729, -13.6541, -30.3729, 28.9445, 28.9857, 27.5478, 28.9857, -28.3192, -27.5796, -29.7158 )
