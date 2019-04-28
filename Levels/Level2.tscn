@@ -30,6 +30,7 @@ AltarType = 6
 
 [node name="LevelChanger" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2106, 445.999 )
+worldScene = "res://Levels/Level3.tscn"
 Disabled = false
 
 [node name="Label" type="Label" parent="."]

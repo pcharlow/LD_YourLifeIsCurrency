@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Tilemaps/TestTilesPrimary.tres" type="TileSet" id=1]
+[ext_resource path="res://MainChar.tscn" type="PackedScene" id=2]
+
+[node name="Level3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -65538, 0, 0, -65537, 0, 1, -131072, 0, 1, -131071, 0, 2, -2, 0, 65536, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 65538, 65534, 0, 65536, 65535, 0, 65537, 0, 0, 65537, 1, 0, 65538, 131070, 0, 131072, 131071, 0, 131073, 65536, 0, 131073, 65537, 0, 131074 )
+
+[node name="MainChar" parent="." instance=ExtResource( 2 )]
+
