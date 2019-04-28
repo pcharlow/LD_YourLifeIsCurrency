@@ -8,12 +8,9 @@ onready var aud = self.get_node("AudioNode")
 func _ready():
 	var nextSound = aud.get_node("NextLevel")
 	nextSound.play()
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	
-	if Player_Vars.unlockedDodge:
-		$Label.visible = true
-	
-	pass
+#func _process(delta):
+#	pass
