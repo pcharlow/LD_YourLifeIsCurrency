@@ -26,8 +26,11 @@ func _ready():
 func _on_HPPackBody_area_entered( area):
 	
 	if area.get_name() == "MainCharArea":
-
-		$PickupAudio.play(0)
+		#var player = AudioStreamPlayer.new()
+		#self.add_child(player)
+		#player.stream = load("res://Assets/Audio/PackPickup.wav")
+		#player.play()
+		#$PickupAudio.play(0)
 		area.get_parent().get_parent()._raiseHealth(self,20)
 
 	

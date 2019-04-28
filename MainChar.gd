@@ -90,6 +90,7 @@ var rangedCooldown = 1
 func _ready():
 	#Initialize global
 	Player_Vars.Player = self
+	
 	get_viewport().audio_listener_enable_2d = true
 	#create timers
 	canAttackTimer = Timer.new()
@@ -144,9 +145,11 @@ func _ready():
 func _raiseHealth(sender, amount):
 	if HP < Player_Vars.maxHP - amount:
 		HP += amount
+		$MainCharBody/PackPickup.play()
 		sender.queue_free()
 	elif HP > Player_Vars.maxHP - amount and HP != Player_Vars.maxHP:
 		HP = Player_Vars.maxHP
+		$MainCharBody/PackPickup.play()
 		sender.queue_free()
 	pass
 

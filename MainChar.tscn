@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainChar.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/BloodAOE1.png" type="Texture" id=2]
@@ -11,7 +11,12 @@
 [ext_resource path="res://Assets/Sprites/BloodAOE8.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/TestChar.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/Melee.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Audio/PackPickup.wav" type="AudioStream" id=12]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.431159, 0.902174 )
+colors = PoolColorArray( 0.952941, 0, 0, 0.513726, 0.25098, 0.00784314, 0.00784314, 0.6, 0.411765, 0.411765, 0.411765, 0.109804 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -40,6 +45,7 @@ position = Vector2( 0.263519, 0 )
 points = PoolVector2Array( 0.984863, 0.37619, 250.532, 0.596825 )
 width = 1.0
 default_color = Color( 0.647059, 0, 0.0470588, 0.411765 )
+gradient = SubResource( 4 )
 
 [node name="BloodAOE" type="AnimatedSprite" parent="MainCharBody"]
 visible = false
@@ -96,8 +102,11 @@ disabled = true
 [node name="MainCharAreaColl" type="CollisionShape2D" parent="MainCharBody/MainCharArea"]
 shape = SubResource( 3 )
 
+[node name="PackPickup" type="AudioStreamPlayer" parent="MainCharBody"]
+stream = ExtResource( 12 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 12 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 13 )]
 
 [connection signal="body_entered" from="MainCharBody/AoeArea" to="." method="_on_AoeArea_body_entered"]
