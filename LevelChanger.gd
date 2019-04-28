@@ -3,10 +3,12 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+
 export(String, FILE, "*tscn") var worldScene
 export var Disabled : bool = true
 export var puzzleCount : int = 1
 var solveCount = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
