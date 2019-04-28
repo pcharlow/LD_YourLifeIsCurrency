@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/AbilityUnlock.wav-591a2d661efc2b1634a216f061006b6f.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/AbilityUnlock.wav"
+dest_files=[ "res://.import/AbilityUnlock.wav-591a2d661efc2b1634a216f061006b6f.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

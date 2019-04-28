@@ -6,7 +6,7 @@ extends Control
 
 onready var pb = $"HP Bar"
 onready var lb = $"HP Bar/HP Text"
-
+onready var aud = get_parent().get_parent().get_parent().get_node("AudioNode")
 
 var maxHPValue : int = 100
 var HPValue : int = 100
@@ -78,6 +78,11 @@ func _on_btnYes_pressed():
 			$PanelContainer.visible = false
 			player.interacting = false
 			Player_Vars.unlockedRanged = true
+			
+			var unlockSound = aud.get_node("AbilityUnlock")
+			unlockSound.play()
+			
+			
 		else:
 			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
 			yield(get_tree().create_timer(2.5), "timeout")
@@ -89,6 +94,10 @@ func _on_btnYes_pressed():
 			$PanelContainer.visible = false
 			player.interacting = false
 			Player_Vars.unlockedDodge = true
+			
+			var unlockSound = aud.get_node("AbilityUnlock")
+			unlockSound.play()
+			
 		else:
 			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
 			yield(get_tree().create_timer(2.5), "timeout")
