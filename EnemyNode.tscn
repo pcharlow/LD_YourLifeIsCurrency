@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[node name="EnemyNode" type="Node2D"]
+
+[node name="EnemyBody" type="KinematicBody2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="EnemyBody"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="EnemyBody"]
+position = Vector2( 0.49255, 3.56723 )
+scale = Vector2( 3.2476, 3.20833 )
+polygon = PoolVector2Array( -5.02525, -8.4298, 3.82935, -8.4298, 8.25665, -0.256317, 5.1916, 6.89548, -6.04694, 6.89548, -9.45256, 0.0842438 )
+
+[node name="TempSprite" type="Sprite" parent="EnemyBody"]
+modulate = Color( 1, 0.670588, 0.384314, 1 )
+texture = ExtResource( 1 )
+

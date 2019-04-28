@@ -28,6 +28,7 @@ position = Vector2( 0.00012207, -3.05176e-005 )
 
 [node name="Altar" parent="." instance=ExtResource( 5 )]
 position = Vector2( 581.458, 327.116 )
+AltarType = 1
 
 [node name="Label" type="Label" parent="."]
 margin_left = 501.164
