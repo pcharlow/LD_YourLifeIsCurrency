@@ -7,6 +7,8 @@ extends Node2D
 enum NamedEnum {a = 0,b = 1}
 export (NamedEnum) var SwitchNumber
 
+export var time : float = 1.5
+
 var solved : bool = false
 var pressed : bool = false
 # Called when the node enters the scene tree for the first time.
@@ -32,7 +34,7 @@ func _on_StepArea_area_entered(area):
 		
 		$StepArea/SpriteOff.visible= false
 		$StepArea/SpriteOn.visible = true
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(time), "timeout")
 		_CheckSolve()
 
 		
