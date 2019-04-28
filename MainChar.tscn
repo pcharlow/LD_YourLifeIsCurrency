@@ -52,7 +52,9 @@ visible = false
 frames = SubResource( 2 )
 speed_scale = 1.5
 
-[node name="MainCharCollider" type="CollisionPolygon2D" parent="MainCharBody"]
+[node name="MainCharCollider" type="CollisionPolygon2D" parent="MainCharBody" groups=[
+"WarpWall",
+]]
 scale = Vector2( 1.04162, 0.944353 )
 polygon = PoolVector2Array( -28.656, -14.6221, -28.6701, 25.2927, 1.32175, 25.7939, 30.5563, 0.0641308, 1.01881, -25.8327, -29.2433, -25.6341 )
 
@@ -65,7 +67,6 @@ margin_right = 40.0
 margin_bottom = -34.0
 
 [node name="Melee" type="KinematicBody2D" parent="MainCharBody"]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 

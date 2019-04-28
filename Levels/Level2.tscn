@@ -44,6 +44,6 @@ align = 1
 autowrap = true
 
 [node name="WarpWall" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1951.31, 447.681 )
-scale = Vector2( -0.0969396, 2.8485 )
+position = Vector2( 1949.91, 447.559 )
+scale = Vector2( 1, 0.66 )
 

@@ -4,6 +4,8 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+onready var Coll = $WallBody/CollisionShape2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,9 +13,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	
+	
 	if Player_Vars.isDodging:
-		$WallBody/CollisionShape2D.disabled = true
-	else:
-		$WallBody/CollisionShape2D.disabled = false
+		Coll.disabled = true
+	#else:
+		#WallBody/CollisionShape2D.disabled = false
 	
 	pass
