@@ -44,7 +44,7 @@ TargetTrigger = true
 [node name="AudioNode" parent="." instance=ExtResource( 6 )]
 
 [node name="MainChar" parent="." instance=ExtResource( 7 )]
-position = Vector2( -1.2811, -0.150787 )
+position = Vector2( -1.2811, 3.84372 )
 
 [node name="Altar" parent="." instance=ExtResource( 8 )]
 position = Vector2( 581.458, 327.116 )

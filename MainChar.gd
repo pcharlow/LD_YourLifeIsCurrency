@@ -160,6 +160,13 @@ func _raiseHealth(sender, amount):
 	pass
 
 
+func _raiseHp(amount):
+	if HP < Player_Vars.maxHP - amount:
+		HP += amount
+	elif HP > Player_Vars.maxHP - amount and HP != Player_Vars.maxHP:
+		HP = Player_Vars.maxHP
+	pass
+
 
 #determines the current input
 func _GetInput():

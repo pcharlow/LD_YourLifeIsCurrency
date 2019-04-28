@@ -19,7 +19,8 @@ func _destroyed():
 		#get_parent().get_name()
 		get_parent().get_node("LevelChanger").solveCount +=1
 		#print(get_parent().getnode("LevelChanger"))
-	
+	else:
+		get_parent().get_node("MainChar")._raiseHp(10)
 	queue_free()
 	
 	pass
