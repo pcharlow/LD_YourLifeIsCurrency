@@ -37,16 +37,16 @@ text = "100/100"
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 visible = false
-margin_left = 369.859
-margin_top = 362.068
-margin_right = 677.859
-margin_bottom = 520.068
+margin_left = 791.947
+margin_top = 444.053
+margin_right = 1099.95
+margin_bottom = 621.053
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 301.0
-margin_bottom = 151.0
+margin_bottom = 170.0
 columns = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/GridContainer"]
@@ -92,6 +92,10 @@ custom_styles/normal = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 text = "No"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [connection signal="pressed" from="PanelContainer/GridContainer/VBoxContainer/HBoxContainer/btnYes" to="." method="_on_btnYes_pressed"]
 [connection signal="pressed" from="PanelContainer/GridContainer/VBoxContainer/HBoxContainer/btnNo" to="." method="_on_btnNo_pressed"]
