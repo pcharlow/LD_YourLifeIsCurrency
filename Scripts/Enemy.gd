@@ -1,14 +1,17 @@
-extends "res://Scripts/Character.gd"
+extends "res://Scripts/Detector.gd"
 
-# Abstract Class
 # Inherited by enemy actors
 # Provides:
-#	Player Detection
-#	Patrol Routing
-#	State (Chasing Player, Returing to Patrol Route, on Patrol)
+#	Navigation variables
 
-const UNIT_CIRCLE_ZERO : Vector2 = Vector2(1,0) # Zero degrees in vector format on the unit circle
+# Detection Variables
+const ANGLE : float = 40.0
+const SIGHT : float = 320.0
 
+export var speed : float = 0.5 # Multiplier for the speed of this enemy
+export var threshold : float = 5 # Enemy stop threshold
+
+var possible = [] # All possible points the enemy may go to
 
 func _ready():
 	pass # Replace with function body.

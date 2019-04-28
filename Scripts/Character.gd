@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 # Abstract Class
 # Inherited by any actors that use a character sprite to provide the basic functionalaity needed
@@ -16,7 +16,7 @@ var sprinting : bool = false
 var velocity : Vector2 = Vector2(0,0)
 
 func _physics_process(delta) -> void:
-	$KinematicBody2D.move_and_slide(velocity)
+	move_and_slide(velocity)
 
 func sprint() -> void:
     sprinting = !sprinting
@@ -47,4 +47,3 @@ func moveRight()-> void:
 
 func stopMovement()-> void:
     velocity = Vector2(0,0)
-
