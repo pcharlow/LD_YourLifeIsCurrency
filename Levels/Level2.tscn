@@ -51,12 +51,12 @@ Disabled = false
 
 [node name="Label" type="Label" parent="."]
 visible = false
-margin_left = 1599.71
-margin_top = 296.18
-margin_right = 1846.71
-margin_bottom = 392.18
+margin_left = 1600.0
+margin_top = 283.17
+margin_right = 1847.0
+margin_bottom = 395.17
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Congrats, you have unlocked the BloodWarp Dodge. Press Space to warp in the direction you're facing. You can warp over small holes in the map. Careful, Warping cost health."
+text = "Congrats, you have unlocked the BloodWarp Dodge. Press Space to warp in the direction you're facing. You can warp over certain thin walls on the map. Careful, Warping cost health."
 align = 1
 autowrap = true
 

@@ -89,8 +89,8 @@ func _on_btnYes_pressed():
 			$PanelContainer.visible = false
 			player.interacting = false
 	elif player.interactionType == 6:
-		if player.HP > 60:
-			player.HP -= 60
+		if player.HP > 50:
+			player.HP -= 50
 			$PanelContainer.visible = false
 			player.interacting = false
 			Player_Vars.unlockedDodge = true
@@ -103,7 +103,37 @@ func _on_btnYes_pressed():
 			yield(get_tree().create_timer(2.5), "timeout")
 			$PanelContainer.visible = false
 			player.interacting = false
+	elif player.interactionType == 7:
+		if player.HP > 50:
+			player.HP -= 50
+			$PanelContainer.visible = false
+			player.interacting = false
+			Player_Vars.unlockedSpeed = true
 			
+			var unlockSound = aud.get_node("AbilityUnlock")
+			unlockSound.play()
+			
+		else:
+			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
+			yield(get_tree().create_timer(2.5), "timeout")
+			$PanelContainer.visible = false
+			player.interacting = false
+			
+	elif player.interactionType == 8:
+		if player.HP > 75:
+			player.HP -= 75
+			$PanelContainer.visible = false
+			player.interacting = false
+			Player_Vars.unlockedAOE = true
+			
+			var unlockSound = aud.get_node("AbilityUnlock")
+			unlockSound.play()
+			
+		else:
+			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
+			yield(get_tree().create_timer(2.5), "timeout")
+			$PanelContainer.visible = false
+			player.interacting = false
 	pass # Replace with function body.
 
 

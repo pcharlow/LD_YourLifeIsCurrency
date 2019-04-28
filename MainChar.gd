@@ -90,7 +90,7 @@ var rangedCooldown = 1
 func _ready():
 	#Initialize global
 	Player_Vars.Player = self
-	
+	HP = Player_Vars.maxHP
 	get_viewport().audio_listener_enable_2d = true
 	#create timers
 	canAttackTimer = Timer.new()
