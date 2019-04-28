@@ -80,6 +80,7 @@ AltarType = 7
 
 [node name="LevelChanger" parent="." instance=ExtResource( 13 )]
 position = Vector2( 907.173, 903.657 )
+worldScene = "res://Levels/Level5.tscn"
 puzzleCount = 3
 
 [node name="Altar2" parent="." instance=ExtResource( 11 )]
