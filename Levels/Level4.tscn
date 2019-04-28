@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Level4.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilemaps/Floors.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Alter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UpgradeAltar.tscn" type="PackedScene" id=12]
 [ext_resource path="res://LevelChanger.tscn" type="PackedScene" id=13]
+[ext_resource path="res://EnemyExit.tscn" type="PackedScene" id=14]
 
 [node name="Level4" type="Node2D"]
 script = ExtResource( 1 )
@@ -77,7 +78,7 @@ position = Vector2( 907.173, 903.657 )
 puzzleCount = 3
 
 [node name="Altar2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 2847.09, 1518.78 )
+position = Vector2( 2843.42, 1388.67 )
 AltarType = 1
 
 [node name="Label" type="Label" parent="."]
@@ -90,4 +91,7 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Congrats, you have unlocked the Blood Dash. Press Shift enable a tempory speed boost. This can be used to press both timed switches before they reset. Careful, Dashing cost health."
 align = 1
 autowrap = true
+
+[node name="EnemyExit" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2847.02, 1662.27 )
 

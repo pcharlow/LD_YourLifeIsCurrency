@@ -28,6 +28,8 @@ func _process(delta):
 
 
 onready var SCLocation = get_parent().get_parent().get_parent().get_node("Shortcut Exit")
+onready var EnemSpawn = get_parent().get_parent().get_parent().get_node("EnemyExit")
+const Enemy = preload("res://EnemyNode.tscn")
 
 func _on_btnYes_pressed():
 	var player = get_parent().get_parent()
@@ -49,6 +51,10 @@ func _on_btnYes_pressed():
 			$PanelContainer.visible = false
 			player.interacting = false
 			#SPAWN ENEMY
+			var ranged = Enemy.instance()
+			ranged.global_position = EnemSpawn.global_position
+			#ranged.dir = player.rotation_degrees
+			player.get_parent().add_child(ranged)
 			
 		else:
 			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"

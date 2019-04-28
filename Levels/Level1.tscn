@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilemaps/TestTilesPrimary.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://HPPack.tscn" type="PackedScene" id=9]
 [ext_resource path="res://LevelChanger.tscn" type="PackedScene" id=10]
 [ext_resource path="res://UpgradeAltar.tscn" type="PackedScene" id=11]
+[ext_resource path="res://EnemyExit.tscn" type="PackedScene" id=12]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -121,4 +122,7 @@ worldScene = "res://Levels/Level2.tscn"
 
 [node name="UpgradeAltar" parent="." instance=ExtResource( 11 )]
 position = Vector2( 2249.22, 319.212 )
+
+[node name="EnemyExit" parent="." instance=ExtResource( 12 )]
+position = Vector2( 786.794, 317.128 )
 

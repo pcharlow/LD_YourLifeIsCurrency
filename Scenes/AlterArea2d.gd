@@ -30,7 +30,8 @@ func _on_AlterArea2d_area_entered(area):
 		area.get_parent().get_parent().interactionType = 0
 	elif myType == 1:
 		area.get_parent().get_parent().AltarText = "Would you, like to spend 10HP to spawn an enemy?"
-		area.get_parent().get_parent().interactionType = 1
+		area.get_parent().get_parent().interactionType = 1		
+		
 	elif myType == -1:
 		area.get_parent().get_parent().AltarText = "Would you, like to spend 75HP to for a shortcut?"
 		area.get_parent().get_parent().interactionType = 2
