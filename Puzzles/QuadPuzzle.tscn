@@ -26,7 +26,7 @@ collision_mask = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Break1"]
 frames = SubResource( 1 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Break1Collider" type="CollisionShape2D" parent="Break1"]
@@ -39,7 +39,6 @@ collision_mask = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Break2"]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Break2Collider" type="CollisionShape2D" parent="Break2"]
@@ -52,7 +51,6 @@ collision_mask = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Break3"]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Break3Collider" type="CollisionShape2D" parent="Break3"]
@@ -65,7 +63,6 @@ collision_mask = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Break4"]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Break4Collider" type="CollisionShape2D" parent="Break4"]

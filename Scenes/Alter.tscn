@@ -33,7 +33,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="AltarBody/AltarArea2d"]
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="InteractText" type="Label" parent="AltarBody/AltarArea2d"]

@@ -73,6 +73,7 @@ func getallnodes(node):
 						b = true
 	if a == true and b == true:
 		solved = true
+		get_parent().get_node("LevelChanger").Disabled = false
 		print("SOLVED!!!")
         #else:
             # Do something

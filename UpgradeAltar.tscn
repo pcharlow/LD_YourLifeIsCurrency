@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UpgradeAltar.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/BloodAltar1.png" type="Texture" id=2]
@@ -18,19 +18,30 @@ animations = [ {
 radius = 38.4977
 height = 11.5788
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6.43108, 24.3551 )
+
 [node name="UpgradeAltar" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="UpgradeArea" type="Area2D" parent="."]
+[node name="UpgradeBody" type="RigidBody2D" parent="."]
+mode = 1
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="UpgradeArea"]
+[node name="UpgradeArea" type="Area2D" parent="UpgradeBody"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="UpgradeBody/UpgradeArea"]
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UpgradeArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpgradeBody/UpgradeArea"]
+visible = false
 position = Vector2( 0, 7.31512 )
 shape = SubResource( 2 )
+
+[node name="CharColl" type="CollisionShape2D" parent="UpgradeBody"]
+position = Vector2( -0.975357, 23.4084 )
+rotation = 1.5708
+shape = SubResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -43,5 +54,5 @@ text = "Press E to interact"
 align = 1
 autowrap = true
 
-[connection signal="area_entered" from="UpgradeArea" to="." method="_on_UpgradeArea_area_entered"]
-[connection signal="area_exited" from="UpgradeArea" to="." method="_on_UpgradeArea_area_exited"]
+[connection signal="area_entered" from="UpgradeBody/UpgradeArea" to="." method="_on_UpgradeArea_area_entered"]
+[connection signal="area_exited" from="UpgradeBody/UpgradeArea" to="." method="_on_UpgradeArea_area_exited"]

@@ -24,6 +24,7 @@ func _physics_process(delta):
 	if not solved:
 		if Break1.visible == false and Break2.visible == false and Break3.visible == false and Break4.visible == false:
 			print("SOLVED")
+			get_parent().get_node("LevelChanger").Disabled = false
 			#Break1.queue_free()
 			#Break2.queue_free()
 			#Break3.queue_free()
