@@ -8,7 +8,7 @@ onready var MainHitbox = $MainCharBody/MainCharCollider
 onready var aoeHitbox = $MainCharBody/AoeArea/AoeCollider
 onready var aoeAnim = $MainCharBody/BloodAOE
 onready var HPBar = $"CanvasLayer/HUD"
-
+onready var aud = get_parent().get_node("AudioNode")
 
 
 const UP = 0
@@ -145,11 +145,17 @@ func _ready():
 func _raiseHealth(sender, amount):
 	if HP < Player_Vars.maxHP - amount:
 		HP += amount
-		$MainCharBody/PackPickup.play()
+		var packSound = aud.get_node("PackPickup")
+		packSound.play()
+		#$AudioNode/PackPickup.play()
+		#$MainCharBody/PackPickup.play()
 		sender.queue_free()
 	elif HP > Player_Vars.maxHP - amount and HP != Player_Vars.maxHP:
 		HP = Player_Vars.maxHP
-		$MainCharBody/PackPickup.play()
+		var packSound = aud.get_node("PackPickup")
+		packSound.play()
+		#$AudioNode/PackPickup.play()
+		#$MainCharBody/PackPickup.play()
 		sender.queue_free()
 	pass
 
@@ -394,6 +400,8 @@ func _PerformRanged():
 			ranged.pos = player.position
 			ranged.dir = player.rotation_degrees
 			player.get_parent().add_child(ranged)
+			var ShotSound = aud.get_node("BloodShot")
+			ShotSound.play()
 			canRangedTimer.start()
 	
 	pass

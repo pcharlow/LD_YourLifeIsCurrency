@@ -5,16 +5,16 @@ extends Node2D
 # var b = "text"
 
 export var  TargetTrigger : bool = false
-
+onready var aud = get_parent().get_node("AudioNode")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
 
 func _destroyed():
-	
-	$TargetBreak.play()
-	
+	var targetSound = aud.get_node("TargetBreak")
+	targetSound.play()
+	#$TargetBreak.play()
 	if TargetTrigger:
 		#get_parent().get_name()
 		get_parent().get_node("LevelChanger").solveCount +=1

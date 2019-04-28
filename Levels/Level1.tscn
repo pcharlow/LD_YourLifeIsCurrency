@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilemaps/TestTilesPrimary.tres" type="TileSet" id=2]
 [ext_resource path="res://Puzzles/Target.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MainChar.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Alter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://HPPack.tscn" type="PackedScene" id=6]
-[ext_resource path="res://LevelChanger.tscn" type="PackedScene" id=7]
-[ext_resource path="res://UpgradeAltar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://AudioNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MainChar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Alter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HPPack.tscn" type="PackedScene" id=7]
+[ext_resource path="res://LevelChanger.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UpgradeAltar.tscn" type="PackedScene" id=9]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
@@ -23,10 +24,12 @@ tile_data = PoolIntArray( -65538, 0, 0, -65537, 0, 1, -131072, 0, 1, -131071, 0,
 position = Vector2( 2588.6, 288.599 )
 TargetTrigger = true
 
-[node name="MainChar" parent="." instance=ExtResource( 4 )]
+[node name="AudioNode" parent="." instance=ExtResource( 4 )]
+
+[node name="MainChar" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1.2811, -0.150787 )
 
-[node name="Altar" parent="." instance=ExtResource( 5 )]
+[node name="Altar" parent="." instance=ExtResource( 6 )]
 position = Vector2( 581.458, 327.116 )
 AltarType = 1
 
@@ -92,13 +95,13 @@ text = "This Blood Alter allows you to exchange a small amount of blood to spawn
 align = 1
 autowrap = true
 
-[node name="HPPack" parent="." instance=ExtResource( 6 )]
+[node name="HPPack" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1402.94, 319.972 )
 
-[node name="LevelChanger" parent="." instance=ExtResource( 7 )]
+[node name="LevelChanger" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2241.36, 89.8398 )
 worldScene = "res://Levels/Level2.tscn"
 
-[node name="UpgradeAltar" parent="." instance=ExtResource( 8 )]
+[node name="UpgradeAltar" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2249.22, 319.212 )
 

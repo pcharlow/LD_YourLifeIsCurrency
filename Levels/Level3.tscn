@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Tilemaps/TestTilesPrimary.tres" type="TileSet" id=1]
 [ext_resource path="res://MainChar.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Alter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Puzzles/Target.tscn" type="PackedScene" id=6]
 [ext_resource path="res://LevelChanger.tscn" type="PackedScene" id=7]
+[ext_resource path="res://AudioNode.tscn" type="PackedScene" id=8]
 
 [node name="Level3" type="Node2D"]
 
@@ -51,4 +52,6 @@ TargetTrigger = true
 [node name="LevelChanger" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1597.67, 865.057 )
 puzzleCount = 2
+
+[node name="AudioNode" parent="." instance=ExtResource( 8 )]
 
