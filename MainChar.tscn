@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://MainChar.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/BloodAOE1.png" type="Texture" id=2]
@@ -11,14 +11,13 @@
 [ext_resource path="res://Assets/Sprites/BloodAOE8.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/TestChar.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/Melee.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Audio/PackPickup.wav" type="AudioStream" id=12]
-[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Gradient" id=4]
-offsets = PoolRealArray( 0, 0.431159, 0.902174 )
-colors = PoolColorArray( 0.952941, 0, 0, 0.513726, 0.25098, 0.00784314, 0.00784314, 0.6, 0.411765, 0.411765, 0.411765, 0.109804 )
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0, 0 )
+colors = PoolColorArray( 1, 0, 0, 0.592157, 0.4, 0, 0, 0.745098, 0, 0, 0, 0 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": false,
@@ -26,11 +25,11 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 146.777
-
 [sub_resource type="CircleShape2D" id=3]
-radius = 31.7638
+radius = 147.043
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 33.0047
 
 [node name="MainChar" type="Node2D"]
 script = ExtResource( 1 )
@@ -45,12 +44,11 @@ position = Vector2( 0.263519, 0 )
 points = PoolVector2Array( 0.984863, 0.37619, 250.532, 0.596825 )
 width = 1.0
 default_color = Color( 0.647059, 0, 0.0470588, 0.411765 )
-gradient = SubResource( 4 )
-texture_mode = -1755727464
+gradient = SubResource( 1 )
 
 [node name="BloodAOE" type="AnimatedSprite" parent="MainCharBody"]
 visible = false
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 speed_scale = 1.5
 
 [node name="MainCharCollider" type="CollisionPolygon2D" parent="MainCharBody" groups=[
@@ -95,19 +93,16 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="AoeCollider" type="CollisionShape2D" parent="MainCharBody/AoeArea"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="MainCharArea" type="Area2D" parent="MainCharBody"]
 
 [node name="MainCharAreaColl" type="CollisionShape2D" parent="MainCharBody/MainCharArea"]
-shape = SubResource( 3 )
-
-[node name="PackPickup" type="AudioStreamPlayer" parent="MainCharBody"]
-stream = ExtResource( 12 )
+shape = SubResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 13 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 12 )]
 
 [connection signal="body_entered" from="MainCharBody/AoeArea" to="." method="_on_AoeArea_body_entered"]

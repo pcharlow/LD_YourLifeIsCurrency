@@ -43,7 +43,6 @@ tile_data = PoolIntArray( 0, 0, 196608, 1, 0, 393221, 2, 0, 393221, 3, 0, 393221
 position = Vector2( 84.4995, 691.36 )
 
 [node name="Route" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Position2D" type="Position2D" parent="Route"]
 position = Vector2( 571.874, 157.758 )
