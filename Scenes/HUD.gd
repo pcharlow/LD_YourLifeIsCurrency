@@ -29,7 +29,7 @@ func _process(delta):
 
 onready var SCLocation = get_parent().get_parent().get_parent().get_node("Shortcut Exit")
 onready var EnemSpawn = get_parent().get_parent().get_parent().get_node("EnemyExit")
-const Enemy = preload("res://EnemyNode.tscn")
+const Enemy = preload("res://Scenes/Characters/Enemy.tscn")
 
 func _on_btnYes_pressed():
 	var player = get_parent().get_parent()
