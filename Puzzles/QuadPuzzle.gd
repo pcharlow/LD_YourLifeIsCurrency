@@ -47,25 +47,25 @@ func hitTarget(TargetNumber):
 	if TargetNumber == 1:
 		Break1.visible = false
 		$Break1/Break1Collider.disabled = true
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(.75), "timeout")
 		CheckForSolve(Break1,$Break1/Break1Collider)
 
 		
 	if TargetNumber == 2:
 		Break2.visible = false
 		$Break2/Break2Collider.disabled = true
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(.75), "timeout")
 		CheckForSolve(Break2,$Break2/Break2Collider)
 		
 	if TargetNumber == 3:
 		Break3.visible = false
 		$Break3/Break3Collider.disabled = true
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(.75), "timeout")
 		CheckForSolve(Break3,$Break3/Break3Collider)
 		
 	if TargetNumber == 4:
 		Break4.visible = false
 		$Break4/Break4Collider.disabled = true
-		yield(get_tree().create_timer(1), "timeout")
+		yield(get_tree().create_timer(.75), "timeout")
 		CheckForSolve(Break4,$Break4/Break4Collider)
 	pass
