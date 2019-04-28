@@ -1,9 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://WarpWall.gd" type="Script" id=1]
+[ext_resource path="res://Puzzles/WarpWall.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/BloodWall1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/BloodWall2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Sprites/BloodWall3.png" type="Texture" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2.48868, 78.2242 )
