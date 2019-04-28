@@ -24,3 +24,42 @@ func _process(delta):
 	
 	
 	pass
+
+
+onready var SCLocation = get_parent().get_parent().get_parent().get_node("Shortcut Exit")
+
+func _on_btnYes_pressed():
+	var player = get_parent().get_parent()
+	
+	if player.interactionType == 0:
+		if player.HP > 50:
+			player.HP-=50
+			player.maxHP +=10	
+			$PanelContainer.visible = false
+			player.interacting = false
+		else:
+			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
+			yield(get_tree().create_timer(2.5), "timeout")
+			$PanelContainer.visible = false
+			player.interacting = false
+	elif player.interactionType == 1:
+		print("do something")
+	elif player.interactionType == 2:
+		if player.HP > 75:
+			$PanelContainer.visible = false
+			player.interacting = false
+			player.player.global_position = SCLocation.global_position
+		else:
+			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
+			yield(get_tree().create_timer(2.5), "timeout")
+			$PanelContainer.visible = false
+			player.interacting = false
+	pass # Replace with function body.
+
+
+func _on_btnNo_pressed():
+
+	$PanelContainer.visible = false
+	get_parent().get_parent().interacting = false
+	
+	pass # Replace with function body.

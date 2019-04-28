@@ -6,6 +6,8 @@ extends Node2D
 onready var AlterText = $InteractText
 onready var AlterArea = $AlterArea2d
 
+enum NamedEnum {HpBoost, SpawnEnemy, Shortcut = -1}
+export (NamedEnum) var AltarType
 # Called when the node enters the scene tree for the first time.
 func _ready():
 

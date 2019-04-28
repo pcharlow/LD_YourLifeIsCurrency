@@ -24,7 +24,16 @@ var maxHP : int = 100
 var HP : int = 100
 var speed : int = 200
 var movement = Vector2()
+
+var AltarText = ""
 var interacting : bool = false
+var canInteract : bool = false
+
+#0 = maxhp boost
+#1 = spawn enemy
+#2 = shortcut
+
+var interactionType : int = 0
 
 #potentially unneeded
 var direction : int = 0
@@ -81,7 +90,6 @@ var speedingTime = 1
 var canRangedTimer = null
 var rangedCooldown = 1
 
-var g = HPPack.instance()
 #onready var pack = get_node("HPPackBody")
 
 # Called when the node enters the scene tree for the first time.
@@ -135,9 +143,13 @@ func _ready():
 	
 	pass # Replace with function body.
 
-func raiseHealth():
-	
-	HP+=20
+func _raiseHealth(sender, amount):
+	if HP < maxHP - amount:
+		HP += amount
+		sender.queue_free()
+	elif HP > maxHP - amount and HP != maxHP:
+		HP = maxHP
+		sender.queue_free()
 	pass
 
 
@@ -194,7 +206,7 @@ func _GetInput():
 func _physics_process(delta):
 
 	
-	_GetInput()
+	
 	HPBar.maxHPValue = maxHP
 	HPBar.HPValue = HP
 	#if not isDodging:
@@ -202,7 +214,7 @@ func _physics_process(delta):
 	
 	if not interacting:
 		player.look_at(get_global_mouse_position())
-	
+		_GetInput()
 	#playerText.text = str(HP) + "/" + str(maxHP)
 	#playerText.text = str(canAOE)
 		if not isDodging:
@@ -228,9 +240,7 @@ func _physics_process(delta):
 							elif HP > maxHP - 20 and HP != maxHP:
 								HP = maxHP
 								coll.collider.queue_free()
-						if coll.collider.name == "AlterInRange":
-							playerText.text = "Interact With Alter?"
-						
+
 					else:
 						playerText.text = ""
 		#if vertMoving and horMoving:
@@ -369,10 +379,11 @@ func _PerformRanged():
 	
 	
 func _PerformInteraction():
-
-
-
-
+	if not interacting:
+		if canInteract:
+			interacting = true
+			$CanvasLayer/HUD/PanelContainer.visible = true
+			$CanvasLayer/HUD/PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = AltarText
 	pass
 	
 	

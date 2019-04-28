@@ -10,8 +10,8 @@ extends Area2D
 
 func _ready():
 	
-	var playerNode = $"/root/MainChar"
-	self.connect("_on_HPPackBody_area_entered", playerNode, "raiseHealth")
+	#var playerNode = $"/root/MainChar"
+	#self.connect("_on_HPPackBody_area_entered", playerNode, "raiseHealth")
 	
 	pass # Replace with function body.
 
@@ -20,14 +20,14 @@ func _ready():
 #	pass
 
 
-signal raiseHP
+#signal raiseHP
 
 
-func _on_HPPackBody_area_entered(area):
+func _on_HPPackBody_area_entered( area):
 	
 	if area.get_name() == "MainCharArea":
-		emit_signal("raiseHP")
-
+		#emit_signal("raiseHP")
+		area.get_parent().get_parent()._raiseHealth(self,20)
 
 		print(area.get_parent().get_parent())
 		#emit_signal("raiseHP", 20)
