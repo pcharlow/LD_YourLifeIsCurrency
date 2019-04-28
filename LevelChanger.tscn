@@ -33,7 +33,6 @@ visible = false
 position = Vector2( -0.220077, 0.220062 )
 scale = Vector2( 0.360441, 0.360441 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="LevelArea"]

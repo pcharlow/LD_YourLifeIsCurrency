@@ -5,7 +5,8 @@ extends Node2D
 # var b = "text"
 export(String, FILE, "*tscn") var worldScene
 export var Disabled : bool = true
-
+export var puzzleCount : int = 1
+var solveCount = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -14,7 +15,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	
+	if solveCount == puzzleCount:
+		Disabled = false
 	
 	if Disabled:
 		$LevelArea/Sprite.visible = false

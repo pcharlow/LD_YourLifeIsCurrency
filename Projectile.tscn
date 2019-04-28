@@ -30,7 +30,6 @@ shape = SubResource( 1 )
 [node name="ProjectileSprite" type="AnimatedSprite" parent="ProjectileBody"]
 scale = Vector2( 0.554401, 0.60371 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 offset = Vector2( -9.63, 0 )
 

@@ -15,7 +15,7 @@ func _destroyed():
 	
 	if TargetTrigger:
 		#get_parent().get_name()
-		get_parent().get_node("LevelChanger").Disabled = false
+		get_parent().get_node("LevelChanger").solveCount +=1
 		#print(get_parent().getnode("LevelChanger"))
 	
 	queue_free()
