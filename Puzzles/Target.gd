@@ -13,6 +13,8 @@ func _ready():
 
 func _destroyed():
 	
+	$TargetBreak.play()
+	
 	if TargetTrigger:
 		#get_parent().get_name()
 		get_parent().get_node("LevelChanger").solveCount +=1
