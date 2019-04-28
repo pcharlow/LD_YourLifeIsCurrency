@@ -4,8 +4,8 @@ extends Node2D
 onready var player = $MainCharBody
 onready var playerText = $MainCharBody/TestLabel
 onready var meleeHitbox = $MainCharBody/Melee/MeleeCollider
-onready var aoeHitbox = $MainCharBody/AOE/AoeCollider
-onready var aoeAnim = $MainCharBody/AOE/BloodAOE
+onready var aoeHitbox = $MainCharBody/AoeArea/AoeCollider
+onready var aoeAnim = $MainCharBody/BloodAOE
 onready var HPBar = $"CanvasLayer/HUD"
 
 
@@ -227,12 +227,13 @@ func _physics_process(delta):
 	
 			if canMove:
 			
-				if isMoving:
+				#if isMoving:
 			
 				#var coll = player.move_and_slide(movement)
+					_CheckAOECollsiion()
 					var coll = player.move_and_collide(movement * delta)
 					if coll:
-					
+						#print(coll.collider.name)
 						if coll.collider.name == "HPPackBody":
 							if HP < maxHP - 20:
 								HP += 20
@@ -241,6 +242,16 @@ func _physics_process(delta):
 								HP = maxHP
 								coll.collider.queue_free()
 
+						if coll.collider.name == "Break1":
+							coll.collider.get_parent().hitTarget(1)
+						if coll.collider.name == "Break2":
+							coll.collider.get_parent().hitTarget(2)
+						if coll.collider.name == "Break3":
+							coll.collider.get_parent().hitTarget(3)
+						if coll.collider.name == "Break4":
+							coll.collider.get_parent().hitTarget(4)
+							
+					
 					else:
 						playerText.text = ""
 		#if vertMoving and horMoving:
@@ -253,9 +264,13 @@ func _physics_process(delta):
 	pass
 
 
-
-
-
+onready var AOEColl = $MainCharBody/AOE
+func _CheckAOECollsiion():
+	
+	#if AOEColl.is_collding():
+	#	print("test")
+	
+	pass
 
 func _PerformDodge():
 	if HP > 5:
@@ -414,3 +429,17 @@ func _enable_Action(action):
 		canSpeedTimer.start()
 		
 	pass
+
+func _on_AoeArea_body_entered(body):
+	#hitTarget(1)
+	if body.get_name() == "Break1":
+		body.get_parent().hitTarget(1)
+	if body.get_name() == "Break2":
+		body.get_parent().hitTarget(2)
+	if body.get_name() == "Break3":
+		body.get_parent().hitTarget(3)
+	if body.get_name() == "Break4":
+		body.get_parent().hitTarget(4)
+	#print(body.get_name())
+	
+	pass # Replace with function body.

@@ -30,7 +30,15 @@ func _physics_process(delta):
 	var coll = ProjBody.move_and_collide(ProjBody.transform.x.normalized() * speed)
 	if coll:
 		if coll.collider.name == "TargetBody":
-			coll.collider.queue_free()
+			coll.collider.get_parent()._destroyed()
+		if coll.collider.name == "Break1":
+			coll.collider.get_parent().hitTarget(1)
+		if coll.collider.name == "Break2":
+			coll.collider.get_parent().hitTarget(2)
+		if coll.collider.name == "Break3":
+			coll.collider.get_parent().hitTarget(3)
+		if coll.collider.name == "Break4":
+			coll.collider.get_parent().hitTarget(4)
 		queue_free()
 	
 	

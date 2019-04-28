@@ -24,6 +24,7 @@ script = ExtResource( 1 )
 mode = 1
 
 [node name="AltarArea2d" type="Area2D" parent="AltarBody"]
+editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="AltarInRangeColl" type="CollisionShape2D" parent="AltarBody/AltarArea2d"]
