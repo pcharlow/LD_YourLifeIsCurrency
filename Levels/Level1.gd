@@ -14,8 +14,9 @@ func _physics_process(delta):
 
 	
 	if not labelSwap:
-		if $MainChar.unlockedRanged:
+		if Player_Vars.unlockedRanged:
 			labelSwap = true
+			$MainChar/MainCharBody/Line2D.visible = true
 			$Label3.visible = false
 			$Label4.visible =  true
 		

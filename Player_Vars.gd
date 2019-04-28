@@ -1,26 +1,21 @@
-extends Node2D
+extends Node
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
-export var  TargetTrigger : bool = false
+var maxHP : int = 100
+
+var unlockedMelee : bool = true
+var unlockedRanged : bool = false
+var unlockedDodge : bool = false
+var unlockedGrapple : bool = false
+var unlockedSpeed : bool = true
+var unlockedAOE : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
-
-func _destroyed():
-	
-	if TargetTrigger:
-		#get_parent().get_name()
-		get_parent().get_node("LevelChanger").solveCount +=1
-		#print(get_parent().getnode("LevelChanger"))
-	
-	queue_free()
-	
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

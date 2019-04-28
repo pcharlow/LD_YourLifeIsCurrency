@@ -72,6 +72,16 @@ text = "Congrats, you have unlocked the ranged Bloodshot attack. Right Mouse But
 align = 1
 autowrap = true
 
+[node name="Label5" type="Label" parent="."]
+margin_left = -89.0422
+margin_top = -101.676
+margin_right = 81.9578
+margin_bottom = -27.6758
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "If you get stuck, pless ESC to return to the previous Checkpoint."
+align = 1
+autowrap = true
+
 [node name="HPPack" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1402.94, 319.972 )
 

@@ -7,7 +7,7 @@
 [ext_resource path="res://Shortcut Exit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Puzzles/Target.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Puzzles/QuadPuzzle.tscn" type="PackedScene" id=7]
-[ext_resource path="res://StepPuzzle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Puzzles/StepPuzzle.tscn" type="PackedScene" id=8]
 [ext_resource path="res://LevelChanger.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node2D"]
