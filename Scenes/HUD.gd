@@ -83,6 +83,17 @@ func _on_btnYes_pressed():
 			yield(get_tree().create_timer(2.5), "timeout")
 			$PanelContainer.visible = false
 			player.interacting = false
+	elif player.interactionType == 6:
+		if player.HP > ((Player_Vars.maxHP / 10) * 6):
+			player.HP -= ((Player_Vars.maxHP / 10) * 6)
+			$PanelContainer.visible = false
+			player.interacting = false
+			Player_Vars.unlockedDodge = true
+		else:
+			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
+			yield(get_tree().create_timer(2.5), "timeout")
+			$PanelContainer.visible = false
+			player.interacting = false
 	pass # Replace with function body.
 
 
