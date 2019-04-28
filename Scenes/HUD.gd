@@ -43,9 +43,23 @@ func _on_btnYes_pressed():
 			$PanelContainer.visible = false
 			player.interacting = false
 	elif player.interactionType == 1:
-		print("do something")
+		if player.HP > 10:
+			player.HP -= 10
+			$PanelContainer.visible = false
+			player.interacting = false
+			
+			#SPAWN ENEMY
+			
+		else:
+			$PanelContainer/GridContainer/VBoxContainer/QuestionLabel.text = "Not Enough HP"
+			yield(get_tree().create_timer(2.5), "timeout")
+			$PanelContainer.visible = false
+			player.interacting = false
+		
+		
 	elif player.interactionType == 2:
 		if player.HP > 75:
+			player.HP -= 75
 			$PanelContainer.visible = false
 			player.interacting = false
 			player.player.global_position = SCLocation.global_position

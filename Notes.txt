@@ -6,17 +6,17 @@ different alters throughout levels
 
 
 Required Alters:
-	1. Blood Whip(Melee Attack)
-	2. Ranged Attack
-	3. Teleport Dodge			
+	1. Blood Whip(Melee Attack) - Working
+	2. Ranged Attack - Working
+	3. Teleport Dodge - Working		
 	4. Grappling hook(?)
-	5. Speed(?)
-	6. AOE Attack
+	5. Speed - Working
+	6. AOE Attack - Working
 
 Optional Alter types:
-	1. Spend HP to raise max hp
-	2. Sacrifice 10hp to spawn enemy
-	3. Sacrifice hp for shortcut
+	1. Spend HP to raise max hp 0 - Working
+	2. Sacrifice 10hp to spawn enemy - Need Enemy
+	3. Sacrifice hp for shortcut - Working
 	
 
 Enemies:

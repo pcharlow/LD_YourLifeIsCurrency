@@ -29,6 +29,8 @@ func _physics_process(delta):
 	#ProjBody.translate(ProjBody.transform.x.normalized() * speed)
 	var coll = ProjBody.move_and_collide(ProjBody.transform.x.normalized() * speed)
 	if coll:
+		if coll.collider.name == "TargetBody":
+			coll.collider.queue_free()
 		queue_free()
 	
 	
