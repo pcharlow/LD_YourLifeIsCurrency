@@ -296,7 +296,8 @@ func _PerformDodge():
 			var mouse_position = get_global_mouse_position()
 			var projectile_direction = (player.global_position - mouse_position).normalized()
 			#player.position -= projectile_direction * (100)
-			
+			var WarpSound = aud.get_node("Warp")
+			WarpSound.play()
 			player.set_collision_mask_bit(3, false)#collision_mask(4).
 			player.set_collision_layer_bit(3, false)
 			player.move_and_slide((projectile_direction * (7000)) * -1)
