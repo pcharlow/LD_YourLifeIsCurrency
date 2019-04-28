@@ -26,11 +26,9 @@ func _ready():
 func _on_HPPackBody_area_entered( area):
 	
 	if area.get_name() == "MainCharArea":
-		#emit_signal("raiseHP")
+
+		$PickupAudio.play(0)
 		area.get_parent().get_parent()._raiseHealth(self,20)
 
-		print(area.get_parent().get_parent())
-		#emit_signal("raiseHP", 20)
-		#GameItm.connect("raiseHPsig", self, "raiseHP", ["20"])
 	
 	pass # Replace with function body.
