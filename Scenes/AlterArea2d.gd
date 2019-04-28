@@ -4,7 +4,7 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
-
+onready var aud = self.get_parent().get_parent().get_parent().get_node("AudioNode")
 onready var AlterText = $InteractText
 
 # Called when the node enters the scene tree for the first time.
@@ -35,7 +35,8 @@ func _on_AlterArea2d_area_entered(area):
 		area.get_parent().get_parent().AltarText = "Would you, like to spend 75HP to for a shortcut?"
 		area.get_parent().get_parent().interactionType = 2
 	#print(area.get_name())
-	
+	var SwirlSound = aud.get_node("AltarSwirl")
+	SwirlSound.play()
 	
 	pass # Replace with function body.
 
@@ -43,4 +44,8 @@ func _on_AlterArea2d_area_entered(area):
 func _on_AltarArea2d_area_exited(area):
 	AlterText.visible = false
 	area.get_parent().get_parent().canInteract = false
+	var SwirlSound = aud.get_node("AltarSwirl")
+	SwirlSound.stop()	
+	
+	
 	pass # Replace with function body.

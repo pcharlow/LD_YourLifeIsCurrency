@@ -7,6 +7,7 @@ extends Control
 onready var pb = $"HP Bar"
 onready var lb = $"HP Bar/HP Text"
 
+
 var maxHPValue : int = 100
 var HPValue : int = 100
 
@@ -47,7 +48,6 @@ func _on_btnYes_pressed():
 			player.HP -= 10
 			$PanelContainer.visible = false
 			player.interacting = false
-			
 			#SPAWN ENEMY
 			
 		else:
@@ -94,6 +94,7 @@ func _on_btnYes_pressed():
 			yield(get_tree().create_timer(2.5), "timeout")
 			$PanelContainer.visible = false
 			player.interacting = false
+			
 	pass # Replace with function body.
 
 

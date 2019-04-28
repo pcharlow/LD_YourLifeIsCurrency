@@ -46,6 +46,7 @@ points = PoolVector2Array( 0.984863, 0.37619, 250.532, 0.596825 )
 width = 1.0
 default_color = Color( 0.647059, 0, 0.0470588, 0.411765 )
 gradient = SubResource( 4 )
+texture_mode = -1755727464
 
 [node name="BloodAOE" type="AnimatedSprite" parent="MainCharBody"]
 visible = false

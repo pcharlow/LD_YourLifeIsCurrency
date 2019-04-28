@@ -225,7 +225,6 @@ func _physics_process(delta):
 		_GetInput()
 		
 		
-		
 		if not Player_Vars.isDodging:
 		
 			if isSpeeding:
