@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Melee.wav-654a023005ce8dca6e99e4270353378e.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Melee.wav"
+dest_files=[ "res://.import/Melee.wav-654a023005ce8dca6e99e4270353378e.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

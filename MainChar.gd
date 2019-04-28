@@ -328,9 +328,11 @@ func _PerformMeleeAttack():
 		isMeleeing = true
 		meleeHitbox.disabled = false
 		$MainCharBody/Melee/MeleeCollider/Temp.visible = true
+
+		var MeleeSound = aud.get_node("Melee")
+		MeleeSound.play()
 		
-		
-		yield(get_tree().create_timer(.25), "timeout")
+		yield(get_tree().create_timer(.4), "timeout")
 		
 		meleeHitbox.disabled = true
 		isMeleeing = false
