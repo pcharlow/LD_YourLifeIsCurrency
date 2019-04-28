@@ -65,7 +65,7 @@ var canRanged : bool = true
 
 #timer creation
 var canAttackTimer = null
-var attackCooldown = .15
+var attackCooldown = .3
 
 var canDodgeTimer = null
 var dodgeCooldown = 1
@@ -91,14 +91,14 @@ func _ready():
 	#Initialize global
 	Player_Vars.Player = self
 	HP = Player_Vars.maxHP
-	get_viewport().audio_listener_enable_2d = true
+	#get_viewport().audio_listener_enable_2d = true
 	#create timers
 	canAttackTimer = Timer.new()
 	canAttackTimer.set_one_shot(true)
 	canAttackTimer.set_wait_time(attackCooldown)
 	canAttackTimer.connect("timeout", self, "_enable_Action",["canMelee"])
 	add_child(canAttackTimer)	
-	#canAttackTimer.start()
+	canAttackTimer.start()
 	
 	canDodgeTimer = Timer.new()
 	canDodgeTimer.set_one_shot(true)
@@ -185,7 +185,8 @@ func _GetInput():
 	if Input.is_action_pressed("mainChar_right"):
 		movement.x += 1
 	if Input.is_action_pressed("mainChar_meleeAttack"):
-		_PerformMeleeAttack()
+		if canMelee:
+			_PerformMeleeAttack()
 	if Input.is_action_pressed("mainChar_dodge"):
 		if Player_Vars.unlockedDodge:
 			_PerformDodge()
@@ -334,24 +335,30 @@ func _PerformMeleeAttack():
 		canMelee = false
 		isMeleeing = true
 		meleeHitbox.disabled = false
-		$MainCharBody/Melee/MeleeCollider/Temp.visible = true
-
+		$MainCharBody/Melee/MeleeCollider/MeleeSlash.frame = 0
+		$MainCharBody/Melee/MeleeCollider/MeleeSlash.visible = true
+		$MainCharBody/Melee/MeleeCollider/MeleeSlash.connect("animation_finished", self, "_finishMelee")
+		$MainCharBody/Melee/MeleeCollider/MeleeSlash.play("default")
+		
 		var MeleeSound = aud.get_node("Melee")
 		MeleeSound.play()
 		
-		yield(get_tree().create_timer(.4), "timeout")
-		
-		meleeHitbox.disabled = true
-		isMeleeing = false
-		$MainCharBody/Melee/MeleeCollider/Temp.visible = false
-		#code for melee (expand hit box or call new object with collision)
-		
-		
-		canAttackTimer.start()
+
 	pass
 
 
+func _finishMelee():
+	
+	#yield(get_tree().create_timer(.5), "timeout")
+	meleeHitbox.disabled = true
+	isMeleeing = false
+	$MainCharBody/Melee/MeleeCollider/MeleeSlash.visible = false
 
+	yield(get_tree().create_timer(.5), "timeout")
+	
+	canMelee = true
+	#canAttackTimer.start()
+	pass
 
 
 

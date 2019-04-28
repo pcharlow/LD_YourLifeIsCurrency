@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://MainChar.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/BloodAOE1.png" type="Texture" id=2]
@@ -9,11 +9,15 @@
 [ext_resource path="res://Assets/Sprites/BloodAOE6.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/BloodAOE7.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/BloodAOE8.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/TestChar.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/TestMainChar.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/Melee.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Audio/PackPickup.wav" type="AudioStream" id=12]
-[ext_resource path="res://Assets/Sprites/BackGround.png" type="Texture" id=13]
-[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Sprites/Slash1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Slash2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Slash3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/Slash4.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Audio/PackPickup.wav" type="AudioStream" id=16]
+[ext_resource path="res://Assets/Sprites/BackGround.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.431159, 0.902174 )
@@ -27,11 +31,19 @@ animations = [ {
 "speed": 20.0
 } ]
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 15.0
+} ]
+
 [sub_resource type="CircleShape2D" id=3]
 radius = 146.777
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 31.7638
+radius = 46.2705
 
 [node name="MainChar" type="Node2D"]
 script = ExtResource( 1 )
@@ -58,7 +70,7 @@ speed_scale = 1.5
 "WarpWall",
 ]]
 scale = Vector2( 1.04162, 0.944353 )
-polygon = PoolVector2Array( -28.656, -14.6221, -28.6701, 25.2927, 1.32175, 25.7939, 30.5563, 0.0641308, 1.01881, -25.8327, -29.2433, -25.6341 )
+polygon = PoolVector2Array( -32.2463, 3.54257, -29.1219, 36.9447, -16.1434, 43.8372, -3.40534, 36.6796, 29.97, 27.678, 29.4374, -21.3758, 0.19977, -31.4502, -16.1434, -44.9701, -27.9202, -34.6313 )
 
 [node name="MainChar" type="Sprite" parent="MainCharBody"]
 texture = ExtResource( 10 )
@@ -73,10 +85,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="MeleeCollider" type="CollisionPolygon2D" parent="MainCharBody/Melee"]
-position = Vector2( 48.2865, 0.730248 )
-scale = Vector2( -1.13676, 2.69276 )
+position = Vector2( 54.8568, 0.730248 )
+scale = Vector2( 1.26816, 2.693 )
 build_mode = 1
-polygon = PoolVector2Array( 14.5268, -10.8679, -13.9942, -19.7397, -13.9942, 19.9722, 15.0271, 10.0442 )
+polygon = PoolVector2Array( 18.4518, -2.00593, 4.27441, -15.669, -23.421, -20.6374, -29.3557, 18.7992, 2.62588, 15.694 )
 disabled = true
 
 [node name="Temp" type="Sprite" parent="MainCharBody/Melee/MeleeCollider"]
@@ -86,13 +98,19 @@ rotation = 3.14159
 scale = Vector2( 0.483996, 0.413438 )
 texture = ExtResource( 11 )
 
+[node name="MeleeSlash" type="AnimatedSprite" parent="MainCharBody/Melee/MeleeCollider"]
+visible = false
+position = Vector2( -2.1253, 3.03617 )
+rotation = 0.233874
+scale = Vector2( 0.488979, 0.267342 )
+frames = SubResource( 5 )
+
 [node name="Camera2D" type="Camera2D" parent="MainCharBody"]
 current = true
 smoothing_enabled = true
 smoothing_speed = 7.0
 
 [node name="AoeArea" type="Area2D" parent="MainCharBody"]
-editor/display_folded = true
 collision_layer = 2
 collision_mask = 2
 
@@ -101,13 +119,12 @@ shape = SubResource( 3 )
 disabled = true
 
 [node name="MainCharArea" type="Area2D" parent="MainCharBody"]
-editor/display_folded = true
 
 [node name="MainCharAreaColl" type="CollisionShape2D" parent="MainCharBody/MainCharArea"]
 shape = SubResource( 4 )
 
 [node name="PackPickup" type="AudioStreamPlayer" parent="MainCharBody"]
-stream = ExtResource( 12 )
+stream = ExtResource( 16 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="MainCharBody"]
 
@@ -117,11 +134,11 @@ motion_mirroring = Vector2( 2561, 2561 )
 
 [node name="Sprite" type="Sprite" parent="MainCharBody/ParallaxBackground/ParallaxLayer"]
 modulate = Color( 0.635294, 0.635294, 0.635294, 1 )
-texture = ExtResource( 13 )
+texture = ExtResource( 17 )
 centered = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="CanvasLayer" instance=ExtResource( 14 )]
+[node name="HUD" parent="CanvasLayer" instance=ExtResource( 18 )]
 
 [connection signal="body_entered" from="MainCharBody/AoeArea" to="." method="_on_AoeArea_body_entered"]

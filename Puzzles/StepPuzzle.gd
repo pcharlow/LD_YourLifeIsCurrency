@@ -78,7 +78,7 @@ func getallnodes(node):
 						b = true
 	if a == true and b == true:
 		solved = true
-		
+		#_CheckSolve()
 		#print("SOLVED!!!")
         #else:
             # Do something
