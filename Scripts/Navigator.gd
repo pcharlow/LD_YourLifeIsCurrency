@@ -6,7 +6,7 @@ export var threshold : float = 5 # stop threshold
 
 var possible = [] # All possible points the character may go to (Obtained from the derivative class)
 var NavNode # A Navigation2D node (Obtained from the derivative class)
-var index : int = 0 # The current point being used from possible
+var index : int = -1 # The current point being used from possible
 var path = [] # The points the character must go to on the way to their destination
 var destination : Vector2 = Vector2() # The destination of the character
 
@@ -32,7 +32,6 @@ func makePath() -> void:
 	index += 1
 	if index == possible.size():
 		index = 0
-	
 	# Make an optimized path to the point from the current location
 	path = NavNode.get_simple_path(global_position, possible[index].global_position, true)
 	
