@@ -12,7 +12,6 @@ export var speed = 25
 var pos = Vector2()
 var dir : float = 0
 
-
 var velocity = Vector2()
 
 # Called when the node enters the scene tree for the first time.
@@ -25,6 +24,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+
 
 	#ProjBody.translate(ProjBody.transform.x.normalized() * speed)
 	var coll = ProjBody.move_and_collide(ProjBody.transform.x.normalized() * speed)
@@ -39,7 +39,8 @@ func _physics_process(delta):
 			coll.collider.get_parent().hitTarget(3)
 		if coll.collider.name == "Break4":
 			coll.collider.get_parent().hitTarget(4)
+			
 		queue_free()
-	
+
 	
 	pass

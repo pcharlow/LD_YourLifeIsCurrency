@@ -43,7 +43,7 @@ var movingDiagonal : bool = false
 
 #unlocked abilites
 var unlockedMelee : bool = true
-var unlockedRanged : bool = true
+var unlockedRanged : bool = false
 var unlockedDodge : bool = true
 var unlockedGrapple : bool = false
 var unlockedSpeed : bool = true

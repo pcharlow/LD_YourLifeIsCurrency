@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Tilemaps/TestTilesPrimary.tres" type="TileSet" id=1]
+[ext_resource path="res://MainChar.tscn" type="PackedScene" id=2]
+
+[node name="Level2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+collision_layer = 5
+collision_mask = 5
+format = 1
+tile_data = PoolIntArray( -65538, 0, 0, -65537, 0, 1, -131072, 0, 1, -131071, 0, 2, -2, 0, 65536, -1, 0, 65537, -65536, 0, 65537, -65535, 0, 327681, -65534, 0, 1, -65533, 0, 1, -65532, 0, 1, -65531, 0, 2, 65534, 0, 131072, 65535, 0, 131073, 0, 0, 262146, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65537, 5, 0, 327681, 6, 0, 2, 65536, 0, 131072, 65537, 0, 131073, 65538, 0, 131073, 65539, 0, 131073, 65540, 0, 131073, 65541, 0, 131073, 65542, 0, 131074 )
+
+[node name="MainChar" parent="." instance=ExtResource( 2 )]
+

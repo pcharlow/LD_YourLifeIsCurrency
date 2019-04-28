@@ -14,7 +14,9 @@ func _ready():
 func _destroyed():
 	
 	if TargetTrigger:
-		print("add map trigger")
+		#get_parent().get_name()
+		get_parent().get_node("LevelChanger").Disabled = false
+		#print(get_parent().getnode("LevelChanger"))
 	
 	queue_free()
 	
