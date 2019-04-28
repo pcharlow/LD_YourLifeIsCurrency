@@ -19,6 +19,10 @@ config/name="LD_YourLifeIsCurrency"
 run/main_scene="res://Scenes/TestingLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Player_Vars="*res://Player_Vars.gd"
+
 [display]
 
 window/size/width=1920

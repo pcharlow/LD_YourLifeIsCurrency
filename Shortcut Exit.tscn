@@ -12,6 +12,7 @@
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="ShortcutArea"]
+visible = false
 position = Vector2( 0.214638, -0.107321 )
 scale = Vector2( 0.168278, 0.164925 )
 texture = ExtResource( 1 )

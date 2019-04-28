@@ -24,7 +24,6 @@ script = ExtResource( 1 )
 mode = 1
 
 [node name="AltarArea2d" type="Area2D" parent="AltarBody"]
-editor/display_folded = true
 script = ExtResource( 2 )
 
 [node name="AltarInRangeColl" type="CollisionShape2D" parent="AltarBody/AltarArea2d"]
@@ -33,6 +32,7 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="AltarBody/AltarArea2d"]
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="InteractText" type="Label" parent="AltarBody/AltarArea2d"]

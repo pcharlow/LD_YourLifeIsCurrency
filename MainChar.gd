@@ -20,7 +20,7 @@ const Projectile = preload("res://Projectile.tscn")
 #char variables
 var gameover : bool = false
 
-var maxHP : int = 100
+
 var HP : int = 100
 var speed : int = 200
 var movement = Vector2()
@@ -41,13 +41,6 @@ var horMoving : bool = false
 var vertMoving : bool = true
 var movingDiagonal : bool = false
 
-#unlocked abilites
-var unlockedMelee : bool = true
-var unlockedRanged : bool = false
-var unlockedDodge : bool = true
-var unlockedGrapple : bool = false
-var unlockedSpeed : bool = true
-var unlockedAOE : bool = true
 
 #cooldowns
 var canMove : bool = true
@@ -144,11 +137,11 @@ func _ready():
 	pass # Replace with function body.
 
 func _raiseHealth(sender, amount):
-	if HP < maxHP - amount:
+	if HP < Player_Vars.maxHP - amount:
 		HP += amount
 		sender.queue_free()
-	elif HP > maxHP - amount and HP != maxHP:
-		HP = maxHP
+	elif HP > Player_Vars.maxHP - amount and HP != Player_Vars.maxHP:
+		HP = Player_Vars.maxHP
 		sender.queue_free()
 	pass
 
@@ -173,19 +166,19 @@ func _GetInput():
 	if Input.is_action_pressed("mainChar_meleeAttack"):
 		_PerformMeleeAttack()
 	if Input.is_action_pressed("mainChar_dodge"):
-		if unlockedDodge:
+		if Player_Vars.unlockedDodge:
 			_PerformDodge()
 	if Input.is_action_pressed("mainChar_speed"):
-		if unlockedSpeed:
+		if Player_Vars.unlockedSpeed:
 			_PerformSpeed()
 	if Input.is_action_pressed("mainChar_AOE"):
-		if unlockedAOE:
+		if Player_Vars.unlockedAOE:
 			_PerformAOE()
 	if Input.is_action_pressed("mainChar_rangeAttack"):
-		if unlockedRanged:
+		if Player_Vars.unlockedRanged:
 			_PerformRanged()
 	if Input.is_action_pressed("mainChar_grapple"):
-		if unlockedGrapple:
+		if Player_Vars.unlockedGrapple:
 			_PerformGrapple()
 	if Input.is_action_pressed("mainChar_interact"):
 		_PerformInteraction()
@@ -207,7 +200,7 @@ func _physics_process(delta):
 
 	
 	
-	HPBar.maxHPValue = maxHP
+	HPBar.maxHPValue = Player_Vars.maxHP
 	HPBar.HPValue = HP
 	#if not isDodging:
 	
@@ -235,11 +228,11 @@ func _physics_process(delta):
 					if coll:
 						#print(coll.collider.name)
 						if coll.collider.name == "HPPackBody":
-							if HP < maxHP - 20:
+							if HP < Player_Vars.maxHP - 20:
 								HP += 20
 								coll.collider.queue_free()
-							elif HP > maxHP - 20 and HP != maxHP:
-								HP = maxHP
+							elif HP > Player_Vars.maxHP - 20 and HP != Player_Vars.maxHP:
+								HP = Player_Vars.maxHP
 								coll.collider.queue_free()
 
 						if coll.collider.name == "Break1":
