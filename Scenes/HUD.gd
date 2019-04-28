@@ -34,7 +34,7 @@ func _on_btnYes_pressed():
 	if player.interactionType == 0:
 		if player.HP > 50:
 			player.HP-=50
-			player.maxHP +=10	
+			Player_Vars.maxHP +=10	
 			$PanelContainer.visible = false
 			player.interacting = false
 		else:
