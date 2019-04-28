@@ -15,35 +15,4 @@ const SPRINT_SPEED : int = WALK_SPEED * 3
 var sprinting : bool = false
 var velocity : Vector2 = Vector2(0,0)
 
-func _physics_process(delta) -> void:
-	move_and_slide(velocity)
-
-func sprint() -> void:
-    sprinting = !sprinting
-
-func moveUp()-> void:
-    if sprinting:
-        velocity.y += -SPRINT_SPEED
-    else:
-        velocity.y += -WALK_SPEED
-
-func moveLeft()-> void:
-    if sprinting:
-        velocity.x += -SPRINT_SPEED
-    else:
-        velocity.x += -WALK_SPEED
-
-func moveDown()-> void:
-    if sprinting:
-        velocity.y += SPRINT_SPEED
-    else:
-        velocity.y += WALK_SPEED
-
-func moveRight()-> void:
-    if sprinting:
-        velocity.x += SPRINT_SPEED
-    else:
-        velocity.x += WALK_SPEED
-
-func stopMovement()-> void:
-    velocity = Vector2(0,0)
+export var speed : float = 1.0 # Multiplier for the speed

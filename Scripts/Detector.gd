@@ -6,28 +6,24 @@ extends "res://Scripts/Character.gd"
 
 const UNIT_CIRCLE_ZERO : Vector2 = Vector2(1,0) # Zero degrees in vector format on the unit circle.
 
-onready var Player = Player_Vars.Player
-
 signal inView
 signal outOfView
 
-var angle : float
-var sight : float
+var Player
+export var angle : float = 40.0
+export var sight : float = 320.0
 
-func setAngle(a) -> void:
-	angle = a/2 # Half the angle to account for the current rotation vector cutting the angle
-	
-func setSight(s) -> void:
-	sight = s
+func setPlayer(p) -> void:
+	Player = p
 	
 func playerInFOV() -> void:
 	var currentRotation = UNIT_CIRCLE_ZERO.rotated(global_rotation) # Convert our rotation to a normalized vector
 	var directionOfPlayer = (Player.position - global_position).normalized() # Obtain the direction of the player and normalize it
 	
 	if abs(directionOfPlayer.angle_to(currentRotation)) < deg2rad(angle) && playerInLOS():
-		emit_signal("detected")
+		emit_signal("inView")
 	else:
-		emit_signal("undetected")
+		emit_signal("outOfView")
 		
 func playerInLOS():
 	var space = get_world_2d().direct_space_state
