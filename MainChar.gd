@@ -133,6 +133,8 @@ func _ready():
 	speedingTimer.connect("timeout", self,"_enable_Action",["isSpeeding"])
 	add_child(speedingTimer)	
 	
+	if Player_Vars.unlockedRanged:
+		$MainCharBody/Line2D.visible = true
 	
 	pass # Replace with function body.
 
