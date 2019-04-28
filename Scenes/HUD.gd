@@ -34,7 +34,7 @@ func _on_btnYes_pressed():
 	if player.interactionType == 0:
 		if player.HP > 50:
 			player.HP-=50
-			player.maxHP +=10	
+			Player_Vars.maxHP +=10	
 			$PanelContainer.visible = false
 			player.interacting = false
 		else:
@@ -73,8 +73,8 @@ func _on_btnYes_pressed():
 			
 			
 	elif player.interactionType == 5:
-		if player.HP > (Player_Vars.maxHP / 2):
-			player.HP -= (Player_Vars.maxHP / 2)
+		if player.HP > 50:
+			player.HP -= 50
 			$PanelContainer.visible = false
 			player.interacting = false
 			Player_Vars.unlockedRanged = true
@@ -84,8 +84,8 @@ func _on_btnYes_pressed():
 			$PanelContainer.visible = false
 			player.interacting = false
 	elif player.interactionType == 6:
-		if player.HP > ((Player_Vars.maxHP / 10) * 6):
-			player.HP -= ((Player_Vars.maxHP / 10) * 6)
+		if player.HP > 60:
+			player.HP -= 60
 			$PanelContainer.visible = false
 			player.interacting = false
 			Player_Vars.unlockedDodge = true

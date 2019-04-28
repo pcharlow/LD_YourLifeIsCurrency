@@ -1,6 +1,0 @@
-[gd_scene format=2]
-
-[node name="WarpWall" type="Node2D"]
-
-[node name="WallBody" type="StaticBody2D" parent="."]
-
