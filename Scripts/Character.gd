@@ -10,57 +10,41 @@ extends Node2D
 
 
 const WALK_SPEED : int = 200
-const SPRINT_SPEED: int = WALK_SPEED * 3
+const SPRINT_SPEED : int = WALK_SPEED * 3
 
 var sprinting : bool = false
 var velocity : Vector2 = Vector2(0,0)
 
-func _physics_process(delta):
-	checkInput()
+func _physics_process(delta) -> void:
 	$KinematicBody2D.move_and_slide(velocity)
 
 func sprint() -> void:
     sprinting = !sprinting
 
-func moveUp():
+func moveUp()-> void:
     if sprinting:
         velocity.y += -SPRINT_SPEED
     else:
         velocity.y += -WALK_SPEED
 
-func moveLeft():
+func moveLeft()-> void:
     if sprinting:
         velocity.x += -SPRINT_SPEED
     else:
         velocity.x += -WALK_SPEED
 
-func moveDown():
+func moveDown()-> void:
     if sprinting:
         velocity.y += SPRINT_SPEED
     else:
         velocity.y += WALK_SPEED
 
-func moveRight():
+func moveRight()-> void:
     if sprinting:
         velocity.x += SPRINT_SPEED
     else:
         velocity.x += WALK_SPEED
 
-func stopMovement():
+func stopMovement()-> void:
     velocity = Vector2(0,0)
 
-
-#temporary
-func checkInput() -> void:
-    $KinematicBody2D.look_at(get_global_mouse_position())
-    stopMovement()
-    if Input.is_action_just_pressed("sprint") || Input.is_action_just_released("sprint"):
-        sprint()
-    if Input.is_action_pressed("ui_down"):
-        moveDown()
-    if Input.is_action_pressed("ui_up"):
-        moveUp()
-    if Input.is_action_pressed("ui_right"):
-        moveRight()
-    if Input.is_action_pressed("ui_left"):
-        moveLeft()

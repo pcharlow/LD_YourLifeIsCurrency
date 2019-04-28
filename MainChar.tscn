@@ -13,7 +13,7 @@
 [ext_resource path="res://Assets/Sprites/Melee.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0, 0 )
 colors = PoolColorArray( 1, 0, 0, 0.592157, 0.4, 0, 0, 0.745098, 0, 0, 0, 0 )
 
@@ -25,10 +25,10 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 radius = 147.043
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 33.0047
 
 [node name="MainChar" type="Node2D"]
@@ -44,8 +44,7 @@ position = Vector2( 0.263519, 0 )
 points = PoolVector2Array( 0.984863, 0.37619, 250.532, 0.596825 )
 width = 1.0
 default_color = Color( 0.647059, 0, 0.0470588, 0.411765 )
-gradient = SubResource( 4 )
-texture_mode = -1755727464
+gradient = SubResource( 1 )
 
 [node name="BloodAOE" type="AnimatedSprite" parent="MainCharBody"]
 visible = false
@@ -94,13 +93,13 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="AoeCollider" type="CollisionShape2D" parent="MainCharBody/AoeArea"]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="MainCharArea" type="Area2D" parent="MainCharBody"]
 
 [node name="MainCharAreaColl" type="CollisionShape2D" parent="MainCharBody/MainCharArea"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
