@@ -9,6 +9,7 @@ export (NamedEnum) var SwitchNumber
 
 export var time : float = 1.5
 
+var complete : bool = false
 var solved : bool = false
 var pressed : bool = false
 # Called when the node enters the scene tree for the first time.
@@ -43,14 +44,18 @@ func _on_StepArea_area_entered(area):
 
 func _CheckSolve():
 	
-	getallnodes(get_parent())
-	if solved:
-		$StepArea/SpriteOn.visible = true
-		$StepArea/SpriteOff.visible = false
-	else:
-		pressed = false
-		$StepArea/SpriteOn.visible = false
-		$StepArea/SpriteOff.visible = true
+	
+	if not complete:
+		getallnodes(get_parent())
+		if solved:
+			complete = true
+			$StepArea/SpriteOn.visible = true
+			$StepArea/SpriteOff.visible = false
+			get_parent().get_node("LevelChanger").solveCount +=1
+		else:
+			pressed = false
+			$StepArea/SpriteOn.visible = false
+			$StepArea/SpriteOff.visible = true
 	pass
 
 
@@ -73,8 +78,8 @@ func getallnodes(node):
 						b = true
 	if a == true and b == true:
 		solved = true
-		get_parent().get_node("LevelChanger").Disabled = false
-		print("SOLVED!!!")
+		
+		#print("SOLVED!!!")
         #else:
             # Do something
             #print("- "+N.get_name())
