@@ -15,7 +15,7 @@
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0, 0 )
-colors = PoolColorArray( 1, 0, 0, 0.909804, 0.4, 0, 0, 0.745098, 0, 0, 0, 0 )
+colors = PoolColorArray( 1, 0, 0, 0.592157, 0.4, 0, 0, 0.745098, 0, 0, 0, 0 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -41,7 +41,7 @@ visible = false
 position = Vector2( 0.263519, 0 )
 points = PoolVector2Array( 0.984863, 0.37619, 250.532, 0.596825 )
 width = 1.0
-default_color = Color( 0.647059, 0, 0.0470588, 1 )
+default_color = Color( 0.647059, 0, 0.0470588, 0.411765 )
 gradient = SubResource( 4 )
 texture_mode = -1755727464
 

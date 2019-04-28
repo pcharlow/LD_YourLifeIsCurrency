@@ -184,7 +184,8 @@ func _GetInput():
 			_PerformGrapple()
 	if Input.is_action_pressed("mainChar_interact"):
 		_PerformInteraction()
-		
+	if Input.is_action_pressed("mainChar_reset"):
+		get_tree().reload_current_scene()
 		
 	movement = movement.normalized() * speed
 	
