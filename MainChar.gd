@@ -4,6 +4,7 @@ extends Node2D
 onready var player = $MainCharBody
 onready var playerText = $MainCharBody/TestLabel
 onready var meleeHitbox = $MainCharBody/Melee/MeleeCollider
+onready var MainHitbox = $MainCharBody/MainCharCollider
 onready var aoeHitbox = $MainCharBody/AoeArea/AoeCollider
 onready var aoeAnim = $MainCharBody/BloodAOE
 onready var HPBar = $"CanvasLayer/HUD"
@@ -50,7 +51,7 @@ var canMelee : bool = true
 var isMeleeing : bool = false
 
 var canDodge : bool = true
-var isDodging : bool = false
+#var isDodging : bool = false
 
 var canGrapple : bool = true
 var isGrapple : bool = false
@@ -211,9 +212,12 @@ func _physics_process(delta):
 	if not interacting:
 		player.look_at(get_global_mouse_position())
 		_GetInput()
-	#playerText.text = str(HP) + "/" + str(maxHP)
-	#playerText.text = str(canAOE)
-		if not isDodging:
+		
+		if Player_Vars.isDodging:
+			MainHitbox.collision
+		
+		
+		if not Player_Vars.isDodging:
 		
 			if isSpeeding:
 				speed = 600
@@ -274,7 +278,7 @@ func _PerformDodge():
 		if canDodge:
 			HP -= 5
 			canDodge = false
-			isDodging = true
+			Player_Vars.isDodging = true
 			
 			#player.translate(player.transform.x.normalized() * speed)
 			#var newDir = get_global_mouse_position() - player.position.normalized()
@@ -284,7 +288,7 @@ func _PerformDodge():
 			var projectile_direction = (player.global_position - mouse_position).normalized()
 			#player.position -= projectile_direction * (100)
 			player.move_and_slide((projectile_direction * (7000)) * -1)
-			isDodging = false
+			Player_Vars.isDodging = false
 			canDodgeTimer.start()
 	pass
 
@@ -293,7 +297,6 @@ func _PerformDodge():
 
 
 func _PerformGrapple():
-	
 	
 	
 	

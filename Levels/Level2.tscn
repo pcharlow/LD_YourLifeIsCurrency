@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Tilemaps/TestTilesPrimary.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://EnemyNode.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UpgradeAltar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://LevelChanger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://WarpWall.tscn" type="PackedScene" id=7]
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
@@ -41,4 +42,8 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Congrats, you have unlocked the BloodWarp Dodge. Press Space to warp in the direction you're facing. You can warp over small holes in the map. Careful, Warping cost health."
 align = 1
 autowrap = true
+
+[node name="WarpWall" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1951.31, 447.681 )
+scale = Vector2( -0.0969396, 2.8485 )
 
