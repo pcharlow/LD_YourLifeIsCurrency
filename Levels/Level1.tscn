@@ -124,5 +124,5 @@ worldScene = "res://Levels/Level2.tscn"
 position = Vector2( 2249.22, 319.212 )
 
 [node name="EnemyExit" parent="." instance=ExtResource( 12 )]
-position = Vector2( 786.794, 317.128 )
+position = Vector2( 719.591, 330.052 )
 
