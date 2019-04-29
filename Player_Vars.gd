@@ -7,7 +7,7 @@ var unlockedSpeed : bool = true
 var unlockedRanged : bool = true
 var unlockedDodge : bool = true
 var unlockedGrapple : bool = false
-var unlockedAOE : bool = false
+var unlockedAOE : bool = true
 
 var isDodging : bool = false
 
