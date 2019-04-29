@@ -10,8 +10,11 @@ signal inView
 signal outOfView
 
 var Player
-export var angle : float = 40.0
-export var sight : float = 320.0
+export var angle = 40
+export var sight = 320
+
+func _process(delta):
+	playerInFOV()
 
 func setPlayer(p) -> void:
 	Player = p
@@ -29,5 +32,5 @@ func playerInLOS():
 	var space = get_world_2d().direct_space_state
 	var obstruction = space.intersect_ray(global_position, Player.position, [self], collision_mask)
 	var distance = Player.global_position.distance_to(global_position)
-	
+
 	return obstruction.collider == Player && distance < sight
