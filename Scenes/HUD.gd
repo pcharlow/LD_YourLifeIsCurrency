@@ -29,7 +29,7 @@ func _process(delta):
 
 onready var SCLocation = get_parent().get_parent().get_parent().get_node("Shortcut Exit")
 onready var EnemSpawn = get_parent().get_parent().get_parent().get_node("EnemyExit")
-const Enemy = preload("res://Scenes/Characters/Enemy.tscn")
+const Enemy = preload("res://EnemyNode.tscn")
 
 func _on_btnYes_pressed():
 	var player = get_parent().get_parent()
@@ -53,6 +53,7 @@ func _on_btnYes_pressed():
 			#SPAWN ENEMY
 			var ranged = Enemy.instance()
 			ranged.global_position = EnemSpawn.global_position
+			ranged.alter = true
 			#ranged.dir = player.rotation_degrees
 			player.get_parent().add_child(ranged)
 			
@@ -126,8 +127,8 @@ func _on_btnYes_pressed():
 			player.interacting = false
 			
 	elif player.interactionType == 8:
-		if player.HP > 75:
-			player.HP -= 75
+		if player.HP > 50:
+			player.HP -= 50
 			$PanelContainer.visible = false
 			player.interacting = false
 			Player_Vars.unlockedAOE = true

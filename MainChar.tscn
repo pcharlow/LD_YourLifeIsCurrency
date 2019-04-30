@@ -82,9 +82,9 @@ margin_top = -48.0
 margin_right = 40.0
 margin_bottom = -34.0
 
-[node name="Melee" type="KinematicBody2D" parent="MainCharBody"]
-collision_layer = 2
-collision_mask = 2
+[node name="Melee" type="Area2D" parent="MainCharBody"]
+collision_layer = 8
+collision_mask = 8
 
 [node name="MeleeCollider" type="CollisionPolygon2D" parent="MainCharBody/Melee"]
 position = Vector2( 54.8568, 0.730248 )
@@ -113,8 +113,8 @@ smoothing_enabled = true
 smoothing_speed = 7.0
 
 [node name="AoeArea" type="Area2D" parent="MainCharBody"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 10
+collision_mask = 10
 
 [node name="AoeCollider" type="CollisionShape2D" parent="MainCharBody/AoeArea"]
 scale = Vector2( 2, 2 )

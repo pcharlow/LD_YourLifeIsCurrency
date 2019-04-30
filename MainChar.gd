@@ -221,7 +221,8 @@ func _GetInput():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 
-	
+	if HP <=0:
+		get_tree().reload_current_scene()
 	
 	HPBar.maxHPValue = Player_Vars.maxHP
 	HPBar.HPValue = HP

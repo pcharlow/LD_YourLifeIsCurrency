@@ -35,7 +35,7 @@ func _on_UpgradeArea_area_entered(area):
 			area.get_parent().get_parent().AltarText = "This Altar Requires 50 HP to obtain a new ability, Continue?"
 			area.get_parent().get_parent().interactionType = 7
 		if AltarType == 8:
-			area.get_parent().get_parent().AltarText = "This Altar Requires 75 HP to obtain a new ability, Continue?"
+			area.get_parent().get_parent().AltarText = "This Altar Requires 50 HP to obtain a new ability, Continue?"
 			area.get_parent().get_parent().interactionType = 8
 	pass # Replace with function body.
 

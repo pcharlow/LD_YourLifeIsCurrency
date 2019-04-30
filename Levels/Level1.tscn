@@ -109,7 +109,7 @@ margin_top = 399.0
 margin_right = 726.0
 margin_bottom = 492.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "This Blood Alter allows you to exchange a small amount of blood to spawn an enemy. Killing the enemy will yeild a  Blood Pack to earn back your HP and some extra."
+text = "This Blood Alter allows you to exchange a small amount of blood to spawn an enemy. Killing the enemy will yield a  much stronger Blood Pack to earn back your HP."
 align = 1
 autowrap = true
 
@@ -124,5 +124,5 @@ worldScene = "res://Levels/Level2.tscn"
 position = Vector2( 2249.22, 319.212 )
 
 [node name="EnemyExit" parent="." instance=ExtResource( 12 )]
-position = Vector2( 719.591, 330.052 )
+position = Vector2( 847.747, 324.637 )
 

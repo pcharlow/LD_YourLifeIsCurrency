@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Projectile.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/BloodProjectile1.png" type="Texture" id=2]
@@ -14,6 +14,9 @@ animations = [ {
 "name": "default",
 "speed": 10.0
 } ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 11.1437
 
 [node name="Projectile" type="Node2D"]
 script = ExtResource( 1 )
@@ -32,4 +35,11 @@ scale = Vector2( 0.554401, 0.60371 )
 frames = SubResource( 2 )
 playing = true
 offset = Vector2( -9.63, 0 )
+
+[node name="ProjectileArea" type="Area2D" parent="ProjectileBody"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="ProjAreaCollider" type="CollisionShape2D" parent="ProjectileBody/ProjectileArea"]
+shape = SubResource( 3 )
 

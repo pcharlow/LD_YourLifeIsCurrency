@@ -50,6 +50,9 @@ position = Vector2( 606.725, 254.271 )
 [node name="EnemyNode3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 981.838, -50.3506 )
 
+[node name="EnemyNode4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1441.53, 1500.24 )
+
 [node name="WarpWall" parent="." instance=ExtResource( 7 )]
 position = Vector2( 895.161, 490.225 )
 rotation = 1.5708
@@ -61,7 +64,7 @@ position = Vector2( 1822.4, 1535.62 )
 position = Vector2( 2294.57, 1399.62 )
 
 [node name="MainChar" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2.73486, 53.1866 )
+position = Vector2( 0.343197, 53.1866 )
 
 [node name="Target" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1950.47, 1309.46 )
